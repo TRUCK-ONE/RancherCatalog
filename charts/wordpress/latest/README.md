@@ -1,6 +1,8 @@
 # WordPress
 
-[WordPress](https://wordpress.org/) is one of the most versatile open source content management systems on the market. A publishing platform for building blogs and websites.
+日本語化(自動翻訳で)
+
+[WordPress](https://wordpress.org/) は、市場で最も汎用性の高いオープンソースのコンテンツ管理システムの1つです。 ブログやウェブサイトを構築するためのパブリッシングプラットフォームです。
 
 ## TL;DR;
 
@@ -8,18 +10,18 @@
 $ helm install stable/wordpress
 ```
 
-## Introduction
+## 前書き
 
-This chart bootstraps a [WordPress](https://github.com/bitnami/bitnami-docker-wordpress) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+このチャートは、[Helm](https://helm.sh)パッケージマネージャーを使用して、[Kubernetes](http://kubernetes.io)クラスター上に[WordPress](https://github.com/bitnami/bitnami-docker-wordpress)デプロイメントをブートストラップします。
 
-It also packages the [Bitnami MariaDB chart](https://github.com/kubernetes/charts/tree/master/stable/mariadb) which is required for bootstrapping a MariaDB deployment for the database requirements of the WordPress application.
+また、WordPressアプリケーションのデータベース要件にMariaDBデプロイメントをブートストラップするために必要な[Bitnami MariaDB chart](https://github.com/kubernetes/charts/tree/master/stable/mariadb)をパッケージ化します。
 
-## Prerequisites
+## 前提条件
 
-- Kubernetes 1.4+ with Beta APIs enabled
-- PV provisioner support in the underlying infrastructure
+- Kubernetes 1.4+ Beta APIを有効にする
+- 基盤となるインフラストラクチャにおけるPVプロビジョニングのサポート
 
-## Installing the Chart
+## Chart の インストール
 
 To install the chart with the release name `my-release`:
 
