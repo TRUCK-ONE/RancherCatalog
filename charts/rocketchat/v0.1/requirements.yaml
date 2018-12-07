@@ -1,4 +1,8 @@
+# 依存関係(mongo DB)
 dependencies:
   - name: mongodb
-    version: 4.3.x
+    # version は、チャートのバージョンを記載
+    version: 4.3.2
     repository: https://kubernetes-charts.storage.googleapis.com/
+    digest: sha256:ddfaec6a053a9e5944e28b808b2ef6d1dc60357e7e3bc755553881fadb946537
+    generated: 2018-09-10T08:39:20.065497472Z 

@@ -1,19 +1,19 @@
 ## Rocket Chat image version
 ## ref: https://hub.docker.com/r/library/rocket.chat/tags/ 
 ## 
-image: rocket.chat:0.69.1 
-  
+image: rocket.chat:0.69.1
+ 
 ## Specify a imagePullPolicy 
 ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent' 
 ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images 
 ## 
-# imagePullPolicy: 
-  
-## Host for the application 
-## 
-# host: 
+# imagePullPolicy:
  
-# Main RocketChat configuration: 
+## Host for the application
+##
+# host:
+ 
+# Main RocketChat configuration:
 config: 
   SMTP_Host: 
   SMTP_Port: 
@@ -33,7 +33,7 @@ config:
 ## 
 ## MongoDB chart configuration 
 ## 
-mongodb: 
+mongodb:
   ## MongoDB admin password 
   ### ref: https://github.com/bitnami/bitnami-docker-mongodb/blob/master/README.md#setting-the-root-password-on-first-run 
   ### 
@@ -47,9 +47,9 @@ mongodb:
   # mongodbDatabase: 
   ## Enable persistence using Persistent Volume Claims 
   ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/ 
-  ## 
-  persistence: 
-    enabled: true 
+  ##
+  persistence:
+    enabled: true
     ## mongodb data Persistent Volume Storage Class 
     ## If defined, storageClassName: <storageClass> 
     ## If set to "-", storageClassName: "", which disables dynamic provisioning 
@@ -58,14 +58,14 @@ mongodb:
     ##   GKE, AWS & OpenStack) 
     ## 
     # storageClass: "-" 
-    accessMode: ReadWriteOnce 
-    size: 8Gi 
+    accessMode: ReadWriteOnce
+    size: 8Gi
   
 ## Enable persistence using Persistent Volume Claims 
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/ 
 ## 
-persistence: 
-  enabled: true 
+persistence:
+  enabled: true
   ## rocketchat data Persistent Volume Storage Class 
   ## If defined, storageClassName: <storageClass> 
   ## If set to "-", storageClassName: "", which disables dynamic provisioning 
@@ -74,38 +74,39 @@ persistence:
   ##   GKE, AWS & OpenStack) 
   ## 
   # storageClass: "-" 
-  accessMode: ReadWriteOnce 
-  size: 8Gi 
+  accessMode: ReadWriteOnce
+  size: 8Gi
   
 ## Configure resource requests and limits 
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/ 
 ## 
 # resources: 
 #   requests: 
-#     memory: 512Mi 
-#     cpu: 300m 
- 
-securityContext: 
-  enabled: true 
-  runAsUser: 999 
-  fsGroup: 999 
-  
-serviceAccount: 
+#     memory: 512Mi
+#     cpu: 300m
+
+securityContext:
+  enabled: true
+  runAsUser: 999
+  fsGroup: 999
+
+serviceAccount:
   # Specifies whether a ServiceAccount should be created 
-  create: true 
+  create: true
  
   # The name of the ServiceAccount to use. 
   # If not set and create is true, a name is generated using the fullname template 
-  name: 
+  name:
  
 ## Configure the ingress object to hook into existing infastructure 
 ### ref : http://kubernetes.io/docs/user-guide/ingress/ 
 ### 
-ingress: 
-  enabled: false 
-  annotations: 
-    kubernetes.io/ingress.class: "nginx" 
-  tls: 
+ingress:
+  enabled: false
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  tls:
   #  - secretName: chart-example-tls 
   #    hosts: 
   #      - chart-example.local
+  

@@ -12,12 +12,14 @@ keywords:
   - javascript
   - meteor
 home: https://rocket.chat/
-icon: https://cdn-www.rocket.chat/images/logo/logo.svg
+#icon: https://cdn-www.rocket.chat/images/logo/logo.svg
+#icon: https://rocket.chat/
+#icon: https://github.com/RocketChat/Rocket.Chat.Artwork/blob/master/Logos/logo-rectangle.svg
 sources:
   - https://github.com/RocketChat/Docker.Official.Image/
 maintainers:
   - name: RocketChat
-    email: buildmaster@rocket.chat
+    email: s-harada@truck-one.co.jp
   - name: geekgonecrazy
   - name: pierreozoux
   - name: verwilst
