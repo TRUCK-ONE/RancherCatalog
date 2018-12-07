@@ -28,20 +28,24 @@ v1.0コピー元
 
 <https://qiita.com/tkusumi/items/12857780d8c8463f9b9c>
 
+＊＊＊
 
 # Rancher の カタログ 構成
 
-参考URL<https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc>
+参考URL
+(Helmの概要とChart(チャート)の作り方)<https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc>
+
+(Rancherでコンテナ化に挫折しました)<https://texta.pixta.jp/entry/2018/10/31/120000>
 
 Helmチャートの構造 ＋ α
 
-Helm チャートから追加された項目
+Helm チャート から Rancher 2.0 カタログに追加される項目
 
 * arr-readme.md
 
 * questions.yaml
 
-
+``` ディレクトリ構造
 カタログの構成
     チャート名ディレクトリ\
         バージョン\
@@ -53,4 +57,4 @@ Helm チャートから追加された項目
             requirements.yaml       (option)依存するチャートの一覧
             templates\              values.yaml と組合わせて使用する K8SのYMAL を格納
             charts\                 依存関係を含むディレクトリ
-
+```
