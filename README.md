@@ -23,9 +23,8 @@ v1.0コピー元
 
 # Rancher の カタログ 構成
 
-参考URL
-[Helmの概要とChart(チャート)の作り方]<https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc>
-
+参考URL  
+[Helmの概要とChart(チャート)の作り方]<https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc>  
 [Rancherでコンテナ化に挫折しました]<https://texta.pixta.jp/entry/2018/10/31/120000>
 
 Helmチャートの構造 ＋ α(追加項目)
