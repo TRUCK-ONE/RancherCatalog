@@ -1,7 +1,7 @@
 name: rocketchat
 version: 0.1.5
 appVersion: 0.69.1
-description: Prepare to take off with the ultimate chat platform, experience the next level of team communications
+description: Chat platform を 準備する。
 keywords:
   - chat
   - communication
@@ -13,14 +13,10 @@ keywords:
   - meteor
 home: https://rocket.chat/
 #icon: https://cdn-www.rocket.chat/images/logo/logo.svg
-#icon: https://rocket.chat/
-#icon: https://github.com/RocketChat/Rocket.Chat.Artwork/blob/master/Logos/logo-rectangle.svg
+icon: https://rocket.chat/images/default/logo.svg
 sources:
   - https://github.com/RocketChat/Docker.Official.Image/
 maintainers:
   - name: RocketChat
     email: s-harada@truck-one.co.jp
-  - name: geekgonecrazy
-  - name: pierreozoux
-  - name: verwilst
     engine: gotpl
