@@ -1,8 +1,11 @@
-## Rocket Chat image version
+## Rocket Chat image version （Docker Image での）
 ## ref: https://hub.docker.com/r/library/rocket.chat/tags/ 
-## 
-image: rocket.chat:0.69.1
- 
+##
+# docker イメージ
+### image: rocket.chat:0.69.1
+# 2018.12.10 S.Harada 最新イメージに変更
+image: rocket.chat:0.71.1
+
 ## Specify a imagePullPolicy 
 ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent' 
 ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images 
@@ -14,21 +17,21 @@ image: rocket.chat:0.69.1
 # host:
  
 # Main RocketChat configuration:
-config: 
-  SMTP_Host: 
-  SMTP_Port: 
-  SMTP_Username: 
-  SMTP_Password: 
-  From_Email: 
-  Jitsi_Enabled: false 
-  Jitsi_Domain: meet.jit.si 
-  Jitsi_URL_Room_Prefix: RocketChat 
-  Jitsi_Open_New_Window: false 
-  Jitsi_Enable_Channels: false 
-  Jitsi_Chrome_Extension: 
-  WebRTC_Enable_Channel: false 
-  WebRTC_Enable_Private: false 
-  WebRTC_Enable_Direct: false 
+config:
+  SMTP_Host:
+  SMTP_Port:
+  SMTP_Username:
+  SMTP_Password:
+  From_Email:
+  Jitsi_Enabled: false
+  Jitsi_Domain: meet.jit.si
+  Jitsi_URL_Room_Prefix: RocketChat
+  Jitsi_Open_New_Window: false
+  Jitsi_Enable_Channels: false
+  Jitsi_Chrome_Extension:
+  WebRTC_Enable_Channel: false
+  WebRTC_Enable_Private: false
+  WebRTC_Enable_Direct: false
   
 ## 
 ## MongoDB chart configuration 

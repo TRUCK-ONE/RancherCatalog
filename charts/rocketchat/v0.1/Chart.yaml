@@ -1,6 +1,9 @@
 name: rocketchat
 version: 0.1.5
-appVersion: 0.69.1
+# appVersion: 0.69.1
+
+# 2018.12.10 S.Harada 最新に変更
+appVersion: 0.71.1
 description: Chat platform を 準備する。
 keywords:
   - chat

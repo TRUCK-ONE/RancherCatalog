@@ -1,0 +1,20 @@
+name: mysql
+version: 0.1.0
+# appVersion: 5.7.14
+
+# 2018.12.10 S.Harada 最新に変更
+appVersion: 8.0.13
+description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースシステム です。
+keywords:
+  - mysql 
+  - database 
+  - sql 
+home: https://www.mysql.com/ 
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png 
+sources: 
+  - https://github.com/kubernetes/charts 
+  - https://github.com/docker-library/mysql 
+maintainers: 
+  - name: Shige Harada
+    email: s-harada@truck-one.co.jp 
+    engine: gotpl
