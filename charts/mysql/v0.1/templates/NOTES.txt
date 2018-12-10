@@ -1,24 +1,27 @@
-MySQL can be accessed via port 3306 on the following DNS name from within your cluster:
+MySQLは、クラスタ内から次のDNS名でポート3306経由でアクセスできます。
+
 {{ template "mysql.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
 
-To get your root password run:
+ルートパスワードの取得方法:
 
     MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "mysql.fullname" . }} -o jsonpath="{.data.mysql-root-password}" | base64 --decode; echo)
 
-To connect to your database:
+データベースに接続するには:
 
-1. Run an Ubuntu pod that you can use as a client:
+1. クライアントとして使用できるUbuntuポッドを実行する:
 
     kubectl run -i --tty ubuntu --image=ubuntu:16.04 --restart=Never -- bash -il
 
-2. Install the mysql client:
+2. mysqlクライアントをインストールする:
 
     $ apt-get update && apt-get install mysql-client -y
 
-3. Connect using the mysql cli, then provide your password:
+3. mysql cliを使用して接続し、パスワードを入力:
+
     $ mysql -h {{ template "mysql.fullname" . }} -p
 
-To connect to your database directly from outside the K8s cluster:
+K8sクラスタの外部から直接データベースに接続するには:
+
     {{- if contains "NodePort" .Values.service.type }}
     MYSQL_HOST=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath='{.items[0].status.addresses[0].address}')
     MYSQL_PORT=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "mysql.fullname" . }} -o jsonpath='{.spec.ports[0].nodePort}')
