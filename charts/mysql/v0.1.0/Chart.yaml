@@ -15,31 +15,32 @@ version: 0.1.0
 # (option)アプリコンテナのバージョン(SemVer)
 appVersion: 8.0.13
 
-# (option) 一文での説明
-description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースシステム です。
+# (option) 一文での説明 → 日本語を一旦中止
+# description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースシステム です。
+description: Fast, reliable, scalable, and easy to use open-source relational database system.
 
 # (option)プロジェクトのキーワード
 keywords:
-- mysql 
-- database 
-- sql 
+- mysql
+- database
+- sql
 
 # (option)プロジェクトのURL
-home: https://www.mysql.com/ 
+home: https://www.mysql.com/
 
 # (option)アイコンとして使用される SVG または PNG の URL
-icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png 
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
 
 # (option)ソースコードURL
-sources: 
-- https://github.com/kubernetes/charts 
-- https://github.com/docker-library/mysql 
+sources:
+- https://github.com/kubernetes/charts
+- https://github.com/docker-library/mysql
 - https://github.com/TRUCK-ONE/RancherCatalog
 
 # (option)maintainer
-maintainers: 
+maintainers:
 - name: Shige Harada
-  email: s-harada@truck-one.co.jp 
+  email: s-harada@truck-one.co.jp
 
 # テンプレートエンジンの名前(デフォルト：gotpl)
 engine: gotpl

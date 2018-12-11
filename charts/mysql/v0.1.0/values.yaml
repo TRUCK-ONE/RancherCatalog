@@ -63,7 +63,7 @@ persistence:
   accessMode: ReadWriteOnce
   size: 8Gi
 
-## Configure resource requests and limits
+## Configure:リソース要件と制限
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
 resources:
@@ -73,10 +73,9 @@ resources:
 
 # Custom mysql configuration files used to override default mysql settings
 configurationFiles:
-#  mysql.cnf: |-
+#  mysql.cnf:
 #    [mysqld]
 #    skip-name-resolve
-
 
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/

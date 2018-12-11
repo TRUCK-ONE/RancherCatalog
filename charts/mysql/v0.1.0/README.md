@@ -14,7 +14,7 @@
 ## Chart の インストール
 
 デフォルトでは、root用にランダムパスワードが、生成されます。  
-独自のパスワードを設定したい場合は、 values.yaml の ysqlRootPassword を変更すること。
+独自のパスワードを設定したい場合は、 values.yaml の mysqlRootPassword を変更すること。
 
 次のコマンドを実行して、ルートパスワードを取得できます。  
 Make sure to replace [YOUR_RELEASE_NAME]:
