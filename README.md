@@ -1,6 +1,6 @@
-# Rancher Catalog
+## Rancher Catalog
 
-[Rancher2.0 カタログ]
+# [Rancher2.0 カタログ]
 
 Rancher Catalog  
 <https://github.com/rancher/charts>  
@@ -30,19 +30,21 @@ v1.0コピー元
 Helmチャートの構造 ＋ α(追加項目)
 
 Helm チャート から Rancher 2.0 カタログに追加される項目  
-* arr-readme.md  
-* questions.yaml
+* app-readme.md  
+* questions.yml
 
 ``` ディレクトリ構造
 (カタログの構成)
-    チャート名ディレクトリ\
-        バージョン\
+    チャート名ディレクトリ/
+        バージョン/
             Chart.yaml              チャートの概要が記述されたファイル
             values.yaml             デフォルト値が定義されたファイル
-            arr-readme.md           Rancher 2.0 UI用 Readmeファイル
-            questions.yaml          Rancher 2.0 UI用 質問ファイル
+            app-readme.md           Rancher 2.0 UI用 Readmeファイル
+            questions.yml           Rancher 2.0 UI用 質問ファイル
             README.md               (option)Helm用 Readmeファイル
             requirements.yaml       (option)依存するチャートの一覧
-            templates\              values.yaml と組合わせて使用する K8SのYMAL を格納
-            charts\                 依存関係を含むディレクトリ
+            LICENSE                 (option)チャートのライセンスを含むテキスト
+            charts/                 依存関係を含むディレクトリ
+            templates/              values.yaml と組合わせて使用する K8SのYMAL を格納
+            templates/NOTES.txt     (option)使用メモを含むテキスト
 ```
