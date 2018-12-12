@@ -36,7 +36,7 @@ questions:
   group: "MySQL Settings"
 - variable: mysqlPassword
   default: ""
-  description: "MySQL ユーザーのパスワード(デフォルト：ランダムな10文字英数字)"
+  description: "MySQL ユーザーのパスワード(Default：ランダムな10文字英数字)"
   type: password
   label: MySQL Password
   group: "MySQL Settings"
@@ -57,7 +57,7 @@ questions:
     required: true
   - variable: persistence.storageClass
     default: ""
-    description: "未定義またはnullの場合、デフォルトのStorageClassを使用します。(デフォルト:null)"
+    description: "未定義またはnullの場合、デフォルトのStorageClassを使用します。(Default:null)"
     type: storageclass
     label: Default storageClass
 - variable: service.port

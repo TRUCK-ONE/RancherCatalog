@@ -55,9 +55,10 @@ Make sure to replace [YOUR_RELEASE_NAME]:
 | `resources`                          | CPU/Memory resource requests/limits       | Memory: `256Mi`, CPU: `100m`                         |
 | `configurationFiles`                 | List of mysql configuration files         | `nil`                                                |
 
-Some of the parameters above map to the env variables defined in the [MySQL DockerHub image](https://hub.docker.com/_/mysql/).
+上記のパラメータのいくつかは、 [MySQL DockerHub image](https://hub.docker.com/_/mysql/) で定義されている env変数 に対応しています。
 
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+`helm install`の` --set key = value [、key = value] `引数を使って各パラメータを指定してください。  
+例えば、
 
 ```bash
 $ helm install --name my-release \
@@ -65,9 +66,10 @@ $ helm install --name my-release \
     stable/mysql
 ```
 
-The above command sets the MySQL `root` account password to `secretpassword`. Additionally it creates a standard database user named `my-user`, with the password `my-password`, who has access to a database named `my-database`.
+上記のコマンドは、MySQL の `root` アカウントパスワードを `secretpassword` に設定します。また、パスワード `my-password`を持つ` my-user`というデータベースユーザを作成します。このユーザは `my-database`という名前のデータベースにアクセスします。
 
-Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+あるいは、チャートのインストール中に、パラメータの値を指定するYAMLファイルを提供することもできます。  
+例えば、
 
 ```bash
 $ helm install --name my-release -f values.yaml stable/mysql
