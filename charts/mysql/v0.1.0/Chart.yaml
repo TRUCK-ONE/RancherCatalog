@@ -15,9 +15,9 @@ version: 0.1.0
 # (option)アプリコンテナのバージョン(SemVer)
 appVersion: 8.0.13
 
-# (option) 一文での説明 → 日本語を一旦中止
-# description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースシステム です。
-description: Fast, reliable, scalable, and easy to use open-source relational database system.
+# (option) 一文での説明
+description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースシステム です。
+# description: Fast, reliable, scalable, and easy to use open-source relational database system.
 
 # (option)プロジェクトのキーワード
 keywords:
