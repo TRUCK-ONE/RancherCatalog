@@ -76,14 +76,14 @@ configurationFiles: {}
 # S.Harada 追加で記載(ログの設定)
   mysql.cnf:
   - [mysqld]
-      general_log
-      general_log_file=/var/lib/mysql/log/general.log
-      log-bin=master-bin
-      log-bin-index=master-bin
-#      general_log                                       # 詳細ログ有効化
-#      general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
-#      log-bin=master-bin                                # バイナリログのベース名
-#      log-bin-index=master-bin                          # バイナリログのファイル名を記録したindexファイル名
+  - general_log
+  - general_log_file: /var/lib/mysql/log/general.log
+  - log-bin: master-bin
+  - log-bin-index: master-bin
+#   general_log                                       # 詳細ログ有効化
+#   general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
+#   log-bin=master-bin                                # バイナリログのベース名
+#   log-bin-index=master-bin                          # バイナリログのファイル名を記録したindexファイル名
 #    skip-name-resolve
 
 ## Configure the service
