@@ -4,7 +4,7 @@ categories:
 questions:
 - variable: defaultImage
   default: "true"
-  description: "Use default Docker images"
+  description: "Default Docker Imageを使用するか？(Default：mysql)"
   label: Use Default Images
   type: boolean
   show_subquestion_if: false
@@ -12,37 +12,37 @@ questions:
   subquestions:
   - variable: image
     default: "mysql"
-    description: "Docker image name"
+    description: "Docker Image name"
     type: string
     label: Image Name
   - variable: imageTag
     default: "8.0.13"
-    description: "Docker image tag"
+    description: "Docker Image tag"
     type: string
     label: Image Tag
 - variable: mysqlDatabase
   default: "admin"
-  description: "Name of database to create"
+  description: "新規作成のデータベース名"
   type: string
   required: true
   label: MySQL Database
   group: "MySQL Settings"
 - variable: mysqlUser
   default: "admin"
-  description: "Username of user to create"
+  description: "作成される MySQL ユーザー"
   type: string
   required: true
   label: MySQL Username
   group: "MySQL Settings"
 - variable: mysqlPassword
   default: ""
-  description: "MySQL Password for the new user, defaults to a random 10-character alphanumeric string if not set"
+  description: "MySQL ユーザーのパスワード(Default：ランダムな10文字英数字)"
   type: password
   label: MySQL Password
   group: "MySQL Settings"
 - variable: persistence.enabled
   default: "false"
-  description: "Enable persistence using PVC"
+  description: "PVC を用いて持続性を有効にするか？"
   type: boolean
   required: true
   label: Persistent Volume Enabled
@@ -51,18 +51,18 @@ questions:
   subquestions:
   - variable: persistence.size
     default: "8Gi"
-    description: "Volume Size"
+    description: "容量"
     type: string
     label: Volume Size
     required: true
   - variable: persistence.storageClass
     default: ""
-    description: "If undefined or null, uses the default StorageClass. Defaults to null."
+    description: "未定義またはnullの場合、デフォルトのStorageClassを使用します。(Default:null)"
     type: storageclass
     label: Default storageClass
 - variable: service.port
   default: "3306"
-  description: "Service port for access to MySQL"
+  description: "MySQL へのアクセスポート"
   type: string
   label: MySQL NodePort number
   required: true
