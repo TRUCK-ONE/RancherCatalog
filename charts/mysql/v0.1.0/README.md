@@ -29,12 +29,12 @@ Make sure to replace [YOUR_RELEASE_NAME]:
 
 | Parameter                            | Description                               | Default                                              |
 | ------------------------------------ | ----------------------------------------- | ---------------------------------------------------- |
-| `imageTag`                           | `mysql` image tag.                        | Most recent release                                  |
+| `imageTag`                           | `mysql` image tag.                        | 最新のリリース                                 |
 | `imagePullPolicy`                    | Image pull policy                         | `IfNotPresent`                                       |
-| `mysqlRootPassword`                  | Password for the `root` user.             | `nil`                                                |
-| `mysqlUser`                          | Username of new user to create.           | `nil`                                                |
-| `mysqlPassword`                      | Password for the new user.                | `nil`                                                |
-| `mysqlDatabase`                      | Name for new database to create.          | `nil`                                                |
+| `mysqlRootPassword`                  | `root` user のパスワード             | `nil`                                                |
+| `mysqlUser`                          | 新規作成するユーザー名           | `nil`                                                |
+| `mysqlPassword`                      | 新規作成ユーザーのパスワード                | `nil`                                                |
+| `mysqlDatabase`                      | 新規作成するデータベース名          | `nil`                                                |
 | `livenessProbe.initialDelaySeconds`  | Delay before liveness probe is initiated  | 30                                                   |
 | `livenessProbe.periodSeconds`        | How often to perform the probe            | 10                                                   |
 | `livenessProbe.timeoutSeconds`       | When the probe times out                  | 5                                                    |
@@ -45,15 +45,15 @@ Make sure to replace [YOUR_RELEASE_NAME]:
 | `readinessProbe.timeoutSeconds`      | When the probe times out                  | 1                                                    |
 | `readinessProbe.successThreshold`    | Minimum consecutive successes for the probe to be considered successful after having failed. | 1 |
 | `readinessProbe.failureThreshold`    | Minimum consecutive failures for the probe to be considered failed after having succeeded.   | 3 |
-| `persistence.enabled`                | Create a volume to store data             | true                                                 |
-| `persistence.size`                   | Size of persistent volume claim           | 8Gi RW                                               |
+| `persistence.enabled`                | データ保存のための volume を作成するか？             | true                                                 |
+| `persistence.size`                   | 永続 volume のサイズ           | 8Gi RW                                               |
 | `nodeSelector`                       | Node labels for pod assignment            | {}                                                   |
-| `persistence.storageClass`           | Type of persistent volume claim           | nil  (uses alpha storage class annotation)           |
+| `persistence.storageClass`           | 永続 volume のタイプ           | nil  (uses alpha storage class annotation)           |
 | `persistence.accessMode`             | ReadWriteOnce or ReadOnly                 | ReadWriteOnce                                        |
-| `persistence.existingClaim`          | Name of existing persistent volume        | `nil`                                                |
-| `persistence.subPath`                | Subdirectory of the volume to mount       | `nil`                                                |
+| `persistence.existingClaim`          | 既存の永続 volume 名        | `nil`                                                |
+| `persistence.subPath`                | マウントする volume の サブディレクトリ       | `nil`                                                |
 | `resources`                          | CPU/Memory resource requests/limits       | Memory: `256Mi`, CPU: `100m`                         |
-| `configurationFiles`                 | List of mysql configuration files         | `nil`                                                |
+| `configurationFiles`                 | mysql 設定ファイルのリスト         | `nil`                                                |
 
 上記のパラメータのいくつかは、 [MySQL DockerHub image](https://hub.docker.com/_/mysql/) で定義されている env変数 に対応しています。
 
@@ -79,16 +79,15 @@ $ helm install --name my-release -f values.yaml stable/mysql
 
 ## Persistence
 
-The [MySQL](https://hub.docker.com/_/mysql/) image stores the MySQL data and configurations at the `/var/lib/mysql` path of the container.
+[MySQL](https://hub.docker.com/_/mysql/) image  は、コンテナの `/var/lib/mysql` に MySQL の データ と 設定 を保存します。
 
-By default a PersistentVolumeClaim is created and mounted into that directory. In order to disable this functionality
-you can change the values.yaml to disable persistence and use an emptyDir instead.
+デフォルトでは、PersistentVolumeClaimが作成され、そのディレクトリにマウントされます。 この機能を無効にするには、values.yamlを変更して永続性を無効にし、代わりにemptyDirを使用します。
 
 > *"An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node. When a Pod is removed from a node for any reason, the data in the emptyDir is deleted forever."*
 
-## Custom MySQL configuration files
+## MySQL 設定ファイル
 
-The [MySQL](https://hub.docker.com/_/mysql/) image accepts custom configuration files at the path `/etc/mysql/conf.d`. If you want to use a customized MySQL configuration, you can create your alternative configuration files by passing the file contents on the `configurationFiles` attribute. Note that according to the MySQL documentation only files ending with `.cnf` are loaded.
+[MySQL](https://hub.docker.com/_/mysql/) image は、`/etc/mysql/conf.d` で 設定ファイルを受け入れます。カスタマイズされたMySQL設定を使用したい場合は、`configurationFiles` 属性にファイルの内容を渡すことで代替設定ファイルを作成できます。MySQLのドキュメントによれば、`.cnf` で終わるファイルだけがロードされます。
 
 ```yaml
 configurationFiles:
