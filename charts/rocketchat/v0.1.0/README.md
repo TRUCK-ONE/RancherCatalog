@@ -1,6 +1,7 @@
 # rocket chat
 
-参考URL(https://github.com/helm/charts/blob/master/stable/rocketchat/)
+参考URL  
+[Helm rocketchat](https://github.com/helm/charts/blob/master/stable/rocketchat/)
 
 参考URLの内容をアレンジ  
 * rancher カタログ用に
