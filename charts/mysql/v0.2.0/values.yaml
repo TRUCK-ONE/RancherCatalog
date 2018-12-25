@@ -1,0 +1,99 @@
+## mysql image version (Docker Image での)
+## ref: https://hub.docker.com/r/library/mysql/tags/
+##
+# docker image
+# 2018.12.10 S.Harada 最新イメージに変更
+## image: "mysql"
+## imageTag: "8.0.13"
+iamge:
+  repository: "mysql"
+  tag: "8.0.13"
+
+## root ユーザーのパスワード設定
+##
+## Default: 10文字のランダム
+# mysqlRootPassword: testing
+
+## 作成する MySQLユーザー
+##
+# mysqlUser:
+# mysqlPassword:
+
+## 認証されていないアクセスを許可するか？
+##
+# mysqlAllowEmptyPassword: true
+
+## 作成する データベース
+##
+# mysqlDatabase:
+
+## Specify an imagePullPolicy (Required)
+## It's recommended to change this to 'Always' if the image tag is 'latest'
+## ref: http://kubernetes.io/docs/user-guide/images/#updating-images
+##
+imagePullPolicy: IfNotPresent
+
+## Node selector
+## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+nodeSelector: {}
+
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+
+readinessProbe:
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 3
+
+## 永続ボリュームに、データを保存する。
+persistence:
+  enabled: true
+  ## データベース・データ永続ボリューム・ストレージ・クラス
+  ## (定義されている場合)      storageClassName: <storageClass>
+  ## ("-"に設定されている場合) storageClassName: "", which disables dynamic provisioning
+  ## (未定義またはnullの場合)  no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+## Configure:リソース要件と制限
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+
+# [デフォルト mysql設定] を上書きする [カスタム mysql設定]
+configurationFiles: {}
+# S.Harada 追加で記載(ログの設定)
+mysql.cnf:
+## mysql.cnf: |
+##  [mysqld]
+##  general_log
+##  general_log_file=/var/lib/mysql/log/general.log
+##  log-bin: master-bin
+##  log-bin-index: master-bin
+#   general_log                                       # 詳細ログ有効化
+#   general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
+#   log-bin=master-bin                                # バイナリログのベース名
+#   log-bin-index=master-bin                          # バイナリログのファイル名を記録したindexファイル名
+#    skip-name-resolve
+
+## Configure the service
+## ref: http://kubernetes.io/docs/user-guide/services/
+service:
+  ## Specify a service type
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
+  type: ClusterIP
+  port: 3306
+  # nodePort: 32000

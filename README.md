@@ -1,6 +1,6 @@
-## Rancher Catalog
+# Rancher Catalog
 
-# [Rancher2.0 カタログ]
+## [Rancher2.0 カタログ]
 
 [Rancher Catalog](https://github.com/rancher/charts)  
 → Private の Rancher2.0 でも、参照は可能
@@ -14,13 +14,11 @@
 
 * wordpress  
 
-
 * その他参考URL  
 [Kubernetes:パッケージマネージャHelm](https://qiita.com/tkusumi/items/12857780d8c8463f9b9c)
 
 
-
-# Rancher の カタログ 構成
+## Rancher の カタログ 構成
 
 参考URL  
 [Helmの概要とChart(チャート)の作り方](https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc)  
@@ -29,7 +27,7 @@
 Helmチャートの構造 ＋ α(追加項目)
 
 Helm チャート から Rancher 2.0 カタログに追加される項目  
-* app-readme.md  
+* app-readme.md
 * questions.yml
 
 ``` ディレクトリ構造

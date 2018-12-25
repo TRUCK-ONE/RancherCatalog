@@ -1,0 +1,47 @@
+# (必須)チャート名
+name: mysql
+
+# (必須)SemVer X.Y.Z
+#   X： メジャーバージョン
+#   Y： マイナーバージョン
+#   Z： パッチバージョン
+# 2018.12.25 S.Harada 1up
+version: 0.2.0
+
+# chart API の バージョン(常にv1)
+# apiVersion: v1
+
+# 2018.12.10 S.Harada 最新に変更
+# appVersion: 5.7.14
+# (option)アプリコンテナのバージョン(SemVer)
+appVersion: 8.0.13
+
+# (option) 一文での説明
+description: 高速、信頼性、スケーラビリティ、および使いやすいオープンソースのリレーショナルデータベースです。
+# description: Fast, reliable, scalable, and easy to use open-source relational database system.
+
+# (option)プロジェクトのキーワード
+keywords:
+- mysql
+- database
+- sql
+
+# (option)プロジェクトのURL
+home: https://www.mysql.com/
+
+# (option)アイコンとして使用される SVG または PNG の URL
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+
+# (option)ソースコードURL
+sources:
+- https://github.com/kubernetes/charts
+- https://github.com/docker-library/mysql
+- https://github.com/TRUCK-ONE/RancherCatalog
+
+# (option)maintainer
+maintainers:
+- name: Shige Harada
+  email: s-harada@truck-one.co.jp
+
+# テンプレートエンジンの名前(デフォルト：gotpl)
+engine: gotpl
