@@ -26,7 +26,7 @@ Make sure to replace [YOUR_RELEASE_NAME]:
 
 次の表に、MySQLチャートの設定可能なパラメータとそのデフォルト値を示します。  
 
-| Parameter                            | Description                               | Default                                              |
+| Parameter                            | 説明                                      | 既定値                                                     |
 | ------------------------------------ | ----------------------------------------- | ---------------------------------------------------- |
 | `imageTag`                           | `mysql` image tag.                        | 最新のリリース                                 |
 | `imagePullPolicy`                    | Image pull policy                         | `IfNotPresent`                                       |
