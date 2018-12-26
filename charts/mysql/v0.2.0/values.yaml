@@ -78,7 +78,7 @@ resources:
 configurationFiles:
   mysql.cnf: |-
     [mysqld]
-    general_log
+    general_log=ON
     general_log_file=/var/lib/mysql/log/general.log
 ## mysql.cnf: |
 ##  [mysqld]
