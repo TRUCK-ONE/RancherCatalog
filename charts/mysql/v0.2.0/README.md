@@ -1,6 +1,6 @@
 # MySQL
 
-## [更新履歴](History.md)
+## [更新履歴](history.md)
 
 - ver0.1.0
 - ver0.2.0

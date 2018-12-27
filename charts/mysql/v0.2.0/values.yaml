@@ -2,9 +2,7 @@
 ## ref: https://hub.docker.com/r/library/mysql/tags/
 ##
 # docker image
-# 2018.12.10 S.Harada 最新イメージに変更
-## image: "mysql"
-## imageTag: "8.0.13"
+# 2018.12.10 S.Harada 最新イメージ(8.0.13)に変更
 iamge:
   repository: "mysql"
   tag: "8.0.13"
@@ -78,7 +76,7 @@ resources:
 configurationFiles:
   mysql.cnf: |-
     [mysqld]
-    general_log=1
+    general_log=ON
     general_log_file=/var/lib/mysql/log/query.log
 #   general_log                                       # 詳細ログ有効化
 #   general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
