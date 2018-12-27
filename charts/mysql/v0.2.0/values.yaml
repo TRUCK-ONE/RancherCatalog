@@ -76,7 +76,8 @@ resources:
 configurationFiles:
   mysql.cnf: |-
     [mysqld]
-    general_log=ON
+    default-time-zone='Asia/Tokyo'
+    general_log='ON'
     general_log_file=/var/lib/mysql/log/query.log
 #   general_log                                       # 詳細ログ有効化
 #   general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
