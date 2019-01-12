@@ -42,3 +42,11 @@ Helm チャート から Rancher 2.0 カタログに追加される項目
 
 * その他参考URL  
 [Kubernetes:パッケージマネージャHelm](https://qiita.com/tkusumi/items/12857780d8c8463f9b9c)
+
+---
+# 参考
+
+Ranchar の カタログを作成するに参考となるアイテム
+
+[Helm Charts](readme/helmchart.md)
+
