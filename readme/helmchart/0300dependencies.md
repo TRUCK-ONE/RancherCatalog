@@ -114,9 +114,9 @@ tags:
   back-end: true
 ```
 
-上記の例では、フロントエンドタグを持つすべてのチャートは無効になりますが、subchart1.enabledパスは親の値で 'true'と評価されるため、条件はフロントエンドタグをオーバーライドし、subchart1が有効になります。
+上記の例では、フロントエンドタグを持つすべてのチャートは無効になりますが、パス(subchart1.enabled) は親の値で 'true'と評価されるため、条件はフロントエンドタグをオーバーライドし、subchart1 が有効になります。
 
-subchart2はバックエンドでタグ付けされ、そのタグはtrueと評価されるので、subchart2は有効になります。 また、subchart2にはrequirements.yamlで指定された条件がありますが、親の値に対応するパスと値がないため、この条件は効果がありません。
+subchart2 はバックエンドでタグ付けされ、そのタグはtrueと評価されるので、subchart2 は有効になります。 また、subchart2 には requirements.yaml で指定された条件がありますが、親の値に対応するパスと値がないため、この条件は効果がありません。
 
 ### タグと条件でのCLIの使用
 
@@ -127,3 +127,88 @@ helm install --set tags.front-end=true --set subchart2.enabled=false
 ```
 
 ### タグと条件の解決
+
+* 条件（値に設定されている場合）は常にタグをオーバーライドします。
+* そのチャートで最初に存在する条件パスとそれ以降のパスが無視されます。
+* タグは「チャートのタグのいずれかが真の場合はチャートを有効にする」と評価されます。
+* タグと条件の値は、上位の親の値に設定する必要があります。
+* tags：キー入力値はトップレベルキーでなければなりません。 グローバルとネストタグ：テーブルは現在サポートされていません。
+
+## requirements.yamlによる子値のインポート
+
+場合によっては、子チャートの値を親チャートに伝達し、共通のデフォルトとして共有できるようにすることが望ましい場合があります。 エクスポート形式を使用することのもう1つの利点は、将来設定するツールがユーザー設定可能な値をイントロスペクトできるようになることです。
+
+インポートする値を含むキーは、YAMLリストを使用して親チャートのrequirements.yamlファイルで指定できます。 リストの各項目は子チャートのエクスポートフィールドからインポートされるキーです。
+
+エクスポートキーに含まれていない値をインポートするには、child-parent形式を使用します。 両方の形式の例を以下に説明します。
+
+### エクスポートフォーマットを使用する
+
+子チャートのvalues.yamlファイルのルートにエクスポートフィールドが含まれている場合、その内容は、以下の例のようにインポートするキーを指定することによって、親の値に直接インポートされます。
+
+```
+# parent's requirements.yaml file
+    ...
+    import-values:
+      - data
+```
+```
+# child's values.yaml file
+...
+exports:
+  data:
+    myint: 99
+```
+インポートリストでキーデータを指定しているので、Helmは子チャートのexportsフィールドでデータキーを探し、その内容をインポートします。
+
+The final parent values would contain our exported field:
+```
+# parent's values file
+...
+myint: 99
+```
+親キーデータは、親の最終値には含まれていません。 親キーを指定する必要がある場合は、 'child-parent'形式を使用してください。
+
+### Using the child-parent format
+
+子チャートの値のエクスポートキーに含まれていない値にアクセスするには、インポートする値のソースキー（子）と、親チャートの値の宛先パス（親）を指定する必要があります。
+
+以下の例のimport-valuesは、child：pathで見つかったすべての値を取り、それらをparentで指定されたパスの親の値にコピーするようにHelmに指示します。
+```
+# parent's requirements.yaml file
+dependencies:
+  - name: subchart1
+    repository: http://localhost:10191
+    version: 0.1.0
+    ...
+    import-values:
+      - child: default.data
+        parent: myimports
+```
+上記の例では、subchart1の値のdefault.dataにある値は、以下に詳しく説明するように、親チャートの値のmyimportsキーにインポートされます。
+```
+# parent's values.yaml file
+
+myimports:
+  myint: 0
+  mybool: false
+  mystring: "helm rocks!"
+```
+```
+# subchart1's values.yaml file
+
+default:
+  data:
+    myint: 999
+    mybool: true
+```
+親チャートの結果の値は次のようになります。
+```
+# parent's final values
+
+myimports:
+  myint: 999
+  mybool: true
+  mystring: "helm rocks!"
+```
+親の最終値に、subchart1からインポートされたmyintフィールドとmyboolフィールドが含まれるようになりました。
