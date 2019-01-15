@@ -48,5 +48,5 @@ Helm チャート から Rancher 2.0 カタログに追加される項目
 
 Ranchar の カタログを作成するに参考となるアイテム
 
-[Helm Charts](readme/helmchart.md)
+[Helm Charts](readme/helmchart/helmchart.md)
 
