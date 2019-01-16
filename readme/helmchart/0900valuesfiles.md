@@ -7,7 +7,7 @@ dockerTag: "latest"
 pullPolicy: "Always"
 storage: "s3"
 ```
-値ファイルはYAMLでフォーマットされています。 チャートにはデフォルトのファイル(values.yaml) を含めることができます。 コマンド(Helm install) を使用すると、ユーザーは追加のYAML値を指定して値をオーバーライドできます。
+値ファイルはYAMLでフォーマットされています。 チャートにはデフォルトのファイル(values.yaml) を含めることができます。 コマンド(helm install) を使用すると、ユーザーは追加のYAML値を指定して値をオーバーライドできます。
 ```
 $ helm install --values=myvals.yaml wordpress
 ```

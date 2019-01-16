@@ -20,12 +20,12 @@ appVersion: アプリのバージョン(オプション) SemVer である必要�
 deprecated: chart が非推奨かどうか（オプション／boolean型）
 tillerVersion: chart が必要とする Tiller のバージョン。これはSemVerの範囲として表現する必要があります。
 ```
-Helm Classic の Chart.yaml 形式に慣れている場合は、依存関係を指定するフィールドが削除されていることに気付くでしょう。それは、新しい Chartフォーマット が chart/ ディレクトリを使用して依存関係を表現するからです。  
+Helm Classic の Chart.yaml 形式に慣れている場合は、依存関係を指定するフィールドが削除されていることに気付くでしょう。それは、新しい Chartフォーマット が ディレクトリ(charts/) を使用して依存関係を表現するからです。  
 他のフィールドは黙って無視されます。
 
 ## Charts と バージョン管理
 
-各 chart にはバージョン番号が必要です。バージョンは [SemVer2](https://semver.org/) に従う必要があります。Helm Classic とは異なり、Kubernetes Helm は リリースマーカーとしてバージョン番号を使用します。リポジトリ内のパッケージは名前とバージョンで識別されます。
+各 Chart にはバージョン番号が必要です。バージョンは [SemVer2](https://semver.org/) に従う必要があります。Helm Classic とは異なり、Kubernetes Helm は リリースマーカーとしてバージョン番号を使用します。リポジトリ内のパッケージは名前とバージョンで識別されます。
 
 例えば、version が ```version：1.2.3``` に設定されている ```nginx``` chart は、次のようになります。
 ```
@@ -33,9 +33,9 @@ nginx-1.2.3.tgz
 ```
 ```version:1.2.3-alpha.1 + ef365``` など、より複雑な SemVer2 の名前もサポートされています。 しかし、 SemVer 以外の名前はシステムによって明示的に許可されていません。
 
-**メモ:** チャートに関しては、 Helm Classic と Deployment Manager はどちらも非常に GitHub を指向していましたが、Kubernetes Helm は GitHub や Git に頼ることも必要とすることもありません。そのため、バージョン管理に Git SHA を使用することはまったくありません。
+**メモ:** Helm Classic と Deployment Manager はどちらも GitHub を指向していましたが、Kubernetes Helm は GitHub や Git に頼ることも必要とすることもありません。そのため、バージョン管理に Git SHA を使用することはまったくありません。
 
-Chart.yaml 内 の versionフィールド は、 CLI や Tiller サーバーなど、多くの Helm ツールで使用されています。 パッケージを生成するとき、 helm package コマンドは、 Chart.yaml で見つかったバージョンをパッケージ名のトークンとして使用します。 システムは、チャートパッケージ名のバージョン番号が Chart.yaml のバージョン番号と一致すると見なします。 この仮定を満たさないとエラーが発生します。
+Chart.yaml 内 の versionフィールド は、 CLI や Tiller サーバーなど、多くの Helm ツールで使用されています。 パッケージを生成するとき、コマンド(helm package) は、 Chart.yaml で見つかったバージョンをパッケージ名のトークンとして使用します。 システムは、チャートパッケージ名のバージョン番号が Chart.yaml のバージョン番号と一致すると見なします。 この仮定を満たさないとエラーが発生します。
 
 ## The appVersion field
 
