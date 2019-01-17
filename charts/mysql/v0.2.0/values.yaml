@@ -73,7 +73,7 @@ resources:
 
 # [デフォルト mysql設定] を上書きする [カスタム mysql設定]
 # S.Harada 追加で記載(ログの設定)
-configurationFiles:
+configurationFiles: {}
 #  my.cnf: |-
 #    [mysqld]
 #    default-time-zone='+9:00'
@@ -84,7 +84,7 @@ configurationFiles:
 #    skip-name-resolve
 
 # データベースの初期化に使用される[カスタムmysql init SQLファイル]
-initializationFiles:
+initializationFiles: {}
 #  first-db.sql: |-
 #    CREATE DATABASE IF NOT EXISTS first DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 #  second-db.sql: |-

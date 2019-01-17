@@ -22,16 +22,17 @@ mysql/
     v0.2.0/
         templates/
             _helpers.tpl
-            configmap.yaml          2019.01.17)修正した。
+            configurationFiles-configmap.yaml       2019.01.17) 修正した。
             deployment.yaml
+            initializationFiles-configmap.yaml      2019.01.17) 追加
             NOTES.txt
             pvc.yaml
-            secrets.yaml            パスワードなどの機密データを取扱っている。
+            secrets.yaml                            パスワードなどの機密データを取扱っている。
             svc.yaml
         app-readme.md
         Chart.yaml
-        history.md                  この履歴ファイル
-        questions.yml
+        history.md                                  この履歴ファイル
+        questions.yml                               2019.01.17) configurationFiles部分を追加
         README.md
         values.yaml
 ```
