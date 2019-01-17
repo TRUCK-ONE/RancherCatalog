@@ -5,6 +5,7 @@
 参考URL  
 [Helmの概要とChart(チャート)の作り方](https://qiita.com/thinksphere/items/5f3e918015cf4e63a0bc)  
 [Rancherでコンテナ化に挫折しました](https://texta.pixta.jp/entry/2018/10/31/120000)
+[Rancher Charts 紹介](https://qiita.com/ynott/items/4df239022f43fac67590)
 
 Helmチャートの構造 ＋ α(追加項目)
 

@@ -13,7 +13,7 @@ data:
 #  default-time-zone: "{{ .Values.mycnf.timezone }}"
 #  general_log: {{ .Values.mycnf.generallog.enable }}
 #  {{- if .Values.mycnf.generallog.enable }}
-#  general_log_file: "{{ .Values.mycnf.generallog.path }}/{{ .Values.mycnf.generallog.file }}" 
+#  general_log_file: "{{ .Values.mycnf.generallog.path }}{{ .Values.mycnf.generallog.file }}" 
 #  # フォルダの作成
 #  command: ["mkdir",{{.Values.mycnf.generallog.path}}]
 #  command: ["chmod","777",{{.Values.mycnf.generallog.path}}]
