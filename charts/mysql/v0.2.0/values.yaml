@@ -3,9 +3,9 @@
 ##
 # docker image
 # 2018.12.10 S.Harada 最新イメージ(8.0.13)に変更
-iamge:
-  repository: "mysql"
-  tag: "8.0.13"
+# 2019.01.16 S.Harada 記載タグを変更 ← questions.yml と templates/deployment.yaml に 合わせる
+iamge: "mysql"
+imageTag: "8.0.13"
 
 ## root ユーザーのパスワード設定
 ##
@@ -74,19 +74,17 @@ resources:
 # [デフォルト mysql設定] を上書きする [カスタム mysql設定]
 # S.Harada 追加で記載(ログの設定)
 configurationFiles:
-  my.cnf: |-
-    [mysqld]
-    default-time-zone='+9:00'
-    general_log='ON'
-    general_log_file=/var/lib/mysql/log/general.log
-#   general_log                                       # 詳細ログ有効化
-#   general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
-#   log-bin=master-bin                                # バイナリログのベース名
-#   log-bin-index=master-bin                          # バイナリログのファイル名を記録したindexファイル名
+#  my.cnf: |-
+#    [mysqld]
+#    default-time-zone='+9:00'
+#    general_log='ON'                                  # 詳細ログ有効化
+#    general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
+#    log-bin=master-bin                                # バイナリログのベース名
+#    log-bin-index=master-bin                          # バイナリログのファイル名を記録したindexファイル名
 #    skip-name-resolve
 
 # データベースの初期化に使用される[カスタムmysql init SQLファイル]
-initializationFiles: {}
+initializationFiles:
 #  first-db.sql: |-
 #    CREATE DATABASE IF NOT EXISTS first DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 #  second-db.sql: |-
