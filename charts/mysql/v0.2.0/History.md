@@ -22,7 +22,7 @@ mysql/
     v0.2.0/
         templates/
             _helpers.tpl
-            configmap.yaml
+            configmap.yaml          2019.01.17)修正した。
             deployment.yaml
             NOTES.txt
             pvc.yaml

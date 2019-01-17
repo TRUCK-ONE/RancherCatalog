@@ -68,29 +68,29 @@ questions:
   type: boolean
   required: true
   label: my.cnf Enabled
-  show_subquestion_if: true
-  group: "my.cnf Setting"
-  subquestions:
-  - variable: mycnf.timezone
-    default: "+9:00"
-    description: "Time zoneを入力"
-    type: string
-    label: Time Zone
-  - variable: mycnf.generallog.enable
-    default: false
-    description: "General Logを有効にするか？"
-    type: boolean
-    label: General Log Enable
-    show_subquestion_if: true
-    group: "General Log"
-    - variable: mycnf.generallog.path
-      default: "/var/lib/mysql/log/general.log"
-      description: "General Log の Path の入力"
-      label: General Log Path
-    - variable: mycnf.generallog.file
-      default: "general.log"
-      description: "General Log の ファイル名 の入力"
-      label: General Log File
+#  show_subquestion_if: true
+#  group: "my.cnf Setting"
+#  subquestions:
+#  - variable: mycnf.timezone
+#    default: "+9:00"
+#    description: "Time zoneを入力"
+#    type: string
+#    label: Time Zone
+#  - variable: mycnf.generallog.enable
+#    default: false
+#    description: "General Logを有効にするか？"
+#    type: boolean
+#    label: General Log Enable
+#    show_subquestion_if: true
+#    group: "General Log"
+#    - variable: mycnf.generallog.path
+#      default: "/var/lib/mysql/log/general.log"
+#      description: "General Log の Path の入力"
+#      label: General Log Path
+#    - variable: mycnf.generallog.file
+#      default: "general.log"
+#      description: "General Log の ファイル名 の入力"
+#      label: General Log File
 # ここまで
 - variable: service.port
   default: "3306"
