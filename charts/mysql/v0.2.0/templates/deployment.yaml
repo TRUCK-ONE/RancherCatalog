@@ -103,8 +103,13 @@ spec:
       {{- if .Values.configurationFiles }}
       - name: configurations
         configMap:
-          name: {{ template "mysql.fullname" . }}
+          name: {{ template "mysql.fullname" . }}-configuration
       {{- end }}
+      {{- if .Values.initializationFiles }} 
+      - name: migrations 
+        configMap: 
+          name: {{ template "mysql.fullname" . }}-initialization 
+      {{- end }} 
       - name: data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
