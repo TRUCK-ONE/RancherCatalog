@@ -72,7 +72,7 @@ questions:
   show_subquestion_if: true
   group: "my.cnf Setting"
   subquestions:
-  - variable: mycnf.timezone
+  - variable: mycnf.default-time-zone
     default: "+9:00"
     description: "Time zoneを入力"
     type: string
