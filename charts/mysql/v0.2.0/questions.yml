@@ -90,7 +90,7 @@ questions:
     label: General Log Path
   - variable: mycnf.generallog.file
     default: "general.log"
-    description: "General Log の ファイル名 の入力"
+    description: "General Log の ファイル名"
     type: string
     label: General Log File
 # ここまで
