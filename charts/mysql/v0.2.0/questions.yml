@@ -74,7 +74,7 @@ questions:
   subquestions:
   - variable: mycnf.default-time-zone
     default: "+9:00"
-    description: "Time zoneを入力"
+    description: "Time zoneを入力(日本時間:+9:00)"
     type: string
     label: Time Zone
   - variable: mycnf.generallog.enable
@@ -82,6 +82,7 @@ questions:
     description: "General Logを有効にするか？"
     type: boolean
     label: General Log Enable
+    show_subquestion_if: true
   - variable: mycnf.generallog.path
     default: "/var/lib/mysql/log/"
     description: "General Log の Path の入力"
