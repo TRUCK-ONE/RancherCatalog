@@ -22,7 +22,7 @@ questions:
     label: Image Tag
 - variable: mysqlDatabase
   default: "admin"
-  description: "新規データベース名"
+  description: "作成データベース名"
   type: string
   required: true
   label: MySQL Database
