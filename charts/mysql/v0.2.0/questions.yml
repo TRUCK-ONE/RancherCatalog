@@ -84,7 +84,7 @@ questions:
     label: General Log Enable
     show_subquestion_if: true
   - variable: mycnf.generallog.path
-    default: "/var/lib/mysql/log/"
+    default: "log/"
     description: "General Log の Path"
     type: string
     label: General Log Path

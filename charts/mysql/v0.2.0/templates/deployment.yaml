@@ -95,19 +95,14 @@ spec:
           {{- if .Values.persistence.subPath }}
           subPath: {{ .Values.persistence.subPath }}
           {{- end }}
+          {{- if .Values.mycnf.generallog.enable }}
+          subPath: {{ .Values.mycnf.generallog.path }}
+          {{- end }}
         {{- if .Values.configurationFiles }}
         - name: configurations
           mountPath: /etc/mysql/conf.d
         {{- end }}
-        {{- if .Values.mycnf.generallog.enable }}
-        - name: generallog
-          mountPath: {{ .Values.mycnf.generallog.path }}
-        {{- end }}
       volumes:
-      {{- if .Values.mycnf.generallog.enable }}
-      - name: generallog
-        emptyDir: {}
-      {{- end }}
       {{- if .Values.configurationFiles }}
       - name: configurations
         configMap:
