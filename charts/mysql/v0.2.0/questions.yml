@@ -100,7 +100,7 @@ questions:
   type: string
   label: MySQL NodePort number
   required: true
-  group: "MySQL Settings"
+  group: "MySQL Port Settings"
 - variable: service.type
   default: "ClusterIP"
   description: "MySQL K8s Service type"
