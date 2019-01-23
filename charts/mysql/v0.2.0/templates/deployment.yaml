@@ -104,6 +104,10 @@ spec:
           mountPath: {{ .Values.mycnf.generallog.path }}
         {{- end }}
       volumes:
+      {{- if .Values.mycnf.generallog.enable }}
+      - name: generallog
+        emptyDir: {}
+      {{- end }}
       {{- if .Values.configurationFiles }}
       - name: configurations
         configMap:
