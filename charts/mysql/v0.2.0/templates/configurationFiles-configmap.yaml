@@ -1,8 +1,4 @@
 {{- if .Values.configurationFiles }}
-{{- if .Values.mycnf.generallog.enable }}
-  command: ["mkdir",{{ .Values.mycnf.generallog.path }}]
-  command: ["chmod","777",{{ .Values.mycnf.generallog.path }}]
-{{- end }}
 apiVersion: v1
 kind: ConfigMap
 metadata:

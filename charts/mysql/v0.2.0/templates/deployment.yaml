@@ -18,6 +18,10 @@ spec:
         image: "busybox:1.25.0"
         imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
         command:  ["rm", "-fr", "/var/lib/mysql/lost+found"]
+        {{- if .Values.mycnf.generallog.enable }}
+        command: ["mkdir",{{ .Values.mycnf.generallog.path }}]
+        command: ["chmod","777",{{ .Values.mycnf.generallog.path }}]
+        {{- end }}
         volumeMounts:
         - name: data
           mountPath: /var/lib/mysql
