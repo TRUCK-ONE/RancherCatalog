@@ -36,7 +36,7 @@ questions:
   group: "MySQL Settings"
 - variable: mysqlPassword
   default: ""
-  description: "MySQL ユーザーのパスワード(Default：ランダムな10文字英数字)"
+  description: "MySQL ユーザーのパスワード(Default：10文字英数字の乱数)"
   type: password
   label: MySQL Password
   group: "MySQL Settings"

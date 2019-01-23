@@ -1,4 +1,8 @@
 {{- if .Values.configurationFiles }}
+{{- if .Values.mycnf.generallog.enable }}
+  command: ["mkdir",{{ .Values.mycnf.generallog.path }}]
+  command: ["chmod","777",{{ .Values.mycnf.generallog.path }}]
+{{- end }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -8,14 +12,4 @@ data:
   {{ $key }}: |-
 {{ $val | indent 4}}
 {{- end }}
-#
-##{{- if .Values.mycnf.enable }}
-##  default-time-zone: {{ .Values.mycnf.default-time-zone }}
-##  general_log: {{ .Values.mycnf.generallog.enable }}
-#  {{- if .Values.mycnf.generallog.enable }}
-##  general_log_file: {{ .Values.mycnf.generallog.path }}{{ .Values.mycnf.generallog.file }} 
-#  command: ["mkdir",{{ .Values.mycnf.generallog.path }}]
-#  command: ["chmod","777",{{ .Values.mycnf.generallog.path }}]
-#  {{- end }}
-#{{- end }}
 {{- end -}}
