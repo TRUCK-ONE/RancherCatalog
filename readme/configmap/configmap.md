@@ -1,5 +1,7 @@
 ## ConfigMap を使用するための Pod の設定
 
+参考URL： [Using ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
 ConfigMapsを使用すると、コンテナー化されたアプリケーションの移植性を維持するために、構成コンテンツをイメージコンテンツから分離することができます。 このページでは、ConfigMapsに格納されたデータを使用してConfigMapsを作成し、Podを構成する方法を示す一連の使用例を示します。
 
 ## [始める前に](0000beforeyoubegin.md)

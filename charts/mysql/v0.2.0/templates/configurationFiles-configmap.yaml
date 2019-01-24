@@ -4,12 +4,16 @@ kind: ConfigMap
 metadata:
   name: {{ template "mysql.fullname" . }}-configuration
 data:
-{{- if .Values.mycnf.generallog.enable }}
+# questions.yaml を反映
+{{- if .Values.mycnf.enable }}
+#  default-time-zone: {{ }}
   general_log: {{ .Values.mycnf.generallog.enable }}
   general_log_file: /var/lib/mysql/log/generallog.log
-{{- end }}
+{{- else }}
+# values.yaml を反映
 {{- range $key, $val := .Values.configurationFiles }}
   {{ $key }}: |-
 {{ $val | indent 4}}
+{{- end }}
 {{- end }}
 {{- end -}}
