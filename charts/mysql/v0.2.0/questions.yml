@@ -75,7 +75,11 @@ questions:
   - variable: mycnf.default-time-zone
     default: "+9:00"
     description: "Time zoneを入力(日本時間:+9:00)"
-    type: string
+    type: enum
+    options:
+    - "+8:00"
+    - "+9:00"
+    - "+10:00"
     label: Time Zone
   - variable: mycnf.generallog.enable
     default: false
