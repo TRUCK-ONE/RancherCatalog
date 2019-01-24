@@ -4,5 +4,8 @@
 
 ## [Helm Chart](helmchart/helmchart.md)
 
+## Kubernetes
+* [Configure a Pod to Use a ConfigMap](configmap/configmap.md)
+
 ---
 ## 用語集
