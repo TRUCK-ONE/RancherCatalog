@@ -4,6 +4,10 @@ kind: ConfigMap
 metadata:
   name: {{ template "mysql.fullname" . }}-configuration
 data:
+{{- if .Values.mycnf.generallog.enable }}
+  general_log: {{ .Values.mycnf.generallog.enable }}
+  general_log_file: /var/lib/mysql/{{ .Values.mycnf.generallog.path }}{{ .Values.mycnf.generallog.file }} 
+{{- end }}
 {{- range $key, $val := .Values.configurationFiles }}
   {{ $key }}: |-
 {{ $val | indent 4}}
