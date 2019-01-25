@@ -7,5 +7,7 @@
 ## Kubernetes
 * [Configure a Pod to Use a ConfigMap](configmap/configmap.md)
 
+## [YAML](yaml/yaml.md)
+
 ---
 ## 用語集
