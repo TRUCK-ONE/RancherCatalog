@@ -5,8 +5,9 @@ metadata:
   name: {{ template "mysql.fullname" . }}-configuration
 data:
 {{- if .Values.mycnf.enable }}
-  general_log: {{ .Values.mycnf.generallog.enable }}
-  general_log_file: /var/lib/mysql/log/generallog.log
+  default-time-zone: "+1:00"
+#  general_log: {{ .Values.mycnf.generallog.enable }}
+#  general_log_file: /var/lib/mysql/log/generallog.log
 {{- else }}
 {{- range $key, $val := .Values.configurationFiles }}
   {{ $key }}: |-
