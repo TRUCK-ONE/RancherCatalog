@@ -76,7 +76,7 @@ resources:
 configurationFiles:
   my.cnf: |-
     [mysqld]
-    default-time-zone='+9:00'
+    default-time-zone='+1:00'
 #    general_log='ON'                                  # 詳細ログ有効化
 #    general_log_file=/var/lib/mysql/log/general.log   # ログのファイルパス
 #    log-bin=master-bin                                # バイナリログのベース名
