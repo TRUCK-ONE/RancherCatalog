@@ -5,10 +5,10 @@ metadata:
   name: {{ template "mysql.fullname" . }}-configuration
 data:
 {{- if .Values.mycnf.enable }}
-  default-time-zone: {{ .Values.mycnf.defaulttimezone }} |-
+  default-time-zone: {{ .Values.mycnf.defaulttimezone }} |
   {{- if .Values.mycnf.generallog.enable }}
 #  general_log: {{ .Values.mycnf.generallog.enable }}
-  general_log_file: /var/lib/mysql/log/generallog.log |-
+  general_log_file: /var/lib/mysql/log/generallog.log |
   {{- end }}
 {{- else }}
 {{- range $key, $val := .Values.configurationFiles }}
