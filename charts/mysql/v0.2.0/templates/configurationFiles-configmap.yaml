@@ -6,6 +6,8 @@ metadata:
 data:
 {{- if .Values.mycnf.enable }}
 {{/* questions.yml を反映する場合 */}}
+my.conf:
+  [mysqld]
   default-time-zone: {{ .Values.mycnf.defaulttimezone }}
   {{- if .Values.mycnf.generallog.enable }}
 #  general_log: {{ .Values.mycnf.generallog.enable }}
@@ -16,4 +18,5 @@ data:
 {{- range $key, $val := .Values.configurationFiles }}
   {{ $key }}: |-
 {{ $val | indent 4}}
+{{- end }}
 {{- end -}}
