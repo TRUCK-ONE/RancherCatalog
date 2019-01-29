@@ -6,12 +6,12 @@ metadata:
 data:
 {{- if .Values.mycnf.enable }}
 {{/* questions.yml を反映する場合 */}}
-my.conf:
-  [mysqld]
-  default-time-zone: {{ .Values.mycnf.defaulttimezone }}
+  my.cnf:
+    [mysqld]
+    default-time-zone: {{ .Values.mycnf.defaulttimezone }}
   {{- if .Values.mycnf.generallog.enable }}
-#  general_log: {{ .Values.mycnf.generallog.enable }}
-  general_log_file: /var/lib/mysql/log/generallog.log
+#   general_log: {{ .Values.mycnf.generallog.enable }}
+    general_log_file: /var/lib/mysql/log/generallog.log
   {{- end }}
 {{- else }}
 {{/* values.yml を反映する場合 */}}
