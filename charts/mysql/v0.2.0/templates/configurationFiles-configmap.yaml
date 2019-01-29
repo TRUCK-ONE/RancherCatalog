@@ -4,5 +4,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "mysql.fullname" . }}-configuration
 data:
-  default-time-zone: {{ .Values.mycnf.defaulttimezone }}
-  general_log_file: /var/lib/mysql/log/generallog.log
+  my.cnf: |-
+    [mysqld]
+    default-time-zone={{ .Values.mycnf.defaulttimezone }}
+    general_log_file=/var/lib/mysql/log/generallog.log

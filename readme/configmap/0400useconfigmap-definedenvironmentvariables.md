@@ -1,6 +1,6 @@
 # Use ConfigMap-defined environment variables in Pod commands
 
-$（VAR_NAME）Kubernetes置換構文を使用して、Pod仕様のコマンドセクションでConfigMap定義の環境変数を使用できます。
+$(VAR_NAME) Kubernetes置換構文を使用して、Pod仕様のコマンドセクションでConfigMap定義の環境変数を使用できます。
 
 例：
 
