@@ -9,5 +9,7 @@
 
 ## [YAML](yaml/yaml.md)
 
+## [Package template](package/package.md)
+
 ---
 ## 用語集
