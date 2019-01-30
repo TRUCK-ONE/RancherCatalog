@@ -1,0 +1,21 @@
+# パッケージを構築するときに無視するパターン。
+# これはシェルグロブマッチング、相対パスマッチング、否定（接頭辞！が付きます）。
+# 1行に1パターンのみ。
+.DS_Store
+# Common VCS dirs
+.git/
+.gitignore
+.bzr/
+.bzrignore
+.hg/
+.hgignore
+.svn/
+# Common backup files
+*.swp
+*.bak
+*.tmp
+*~
+# Various IDEs
+.project
+.idea/
+*.tmproj

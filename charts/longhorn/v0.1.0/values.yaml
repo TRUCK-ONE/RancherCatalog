@@ -1,0 +1,82 @@
+# longhornのデフォルト値
+# YAMLファイル
+# テンプレートに渡す変数を宣言します。
+image:
+  longhorn:
+    engine: rancher/longhorn-engine
+    engineTag: v0.3.3
+    manager: rancher/longhorn-manager
+    managerTag: v0.3.3
+    ui: rancher/longhorn-ui
+    uiTag: v0.3.3
+  pullPolicy: IfNotPresent
+
+service:
+  ui:
+    type: LoadBalancer
+    nodePort: ""
+  manager:
+    type: ClusterIP
+    nodePort: ""
+
+# 'flexvolume'または 'csi'ドライバをデプロイします
+driver: csi
+
+persistence:
+  # GKEの場合は代わりに /home/kubernetes/flexvolume/ を使用します。ユーザーはホスト上で ps aux | grep kubelet を実行して--volume-plugin-dirパラメーターを確認することで正しいディレクトリーを見つけることができます。
+  # 何もなければ、デフォルトの /usr/libexec/kubernetes/kubelet-plugins/volume/exec/ が使用されます。
+  flexvolumePath:
+  defaultClass: true
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+  #
+
+ingress:
+  ## 入力レコードの生成を有効にするにはtrueに設定します
+  enabled: false
+
+
+  host: xip.io
+
+  ## 入力レコードでTLSを有効にするには、これをtrueに設定します。
+  ## これによる副作用はバックエンドサービスがポート443で接続されることです。
+  tls: false
+
+  ## TLSがtrueに設定されている場合は、どの秘密がTLSのキー/証明書を格納するかを宣言する必要があります。
+  tlsSecret: longhorn.local-tls
+
+  ## キーと値のペアとして行われる入力アノテーション
+  ## あなたがkube-legoを使っているなら、あなたは追加したいでしょう：
+  ## kubernetes.io/tls-acme: true
+  ##
+  ## 可能なイングレスアノテーションの完全なリストについては、以下を見てください。
+  ## ref: https://github.com/kubernetes/ingress-nginx/blob/master/docs/annotations.md
+  ##
+  ## tlsがtrueに設定されていると、アノテーションingress.kubernetes.io/secure-backends： "true"が自動的に設定されます。
+  annotations:
+  #  kubernetes.io/ingress.class: nginx
+  #  kubernetes.io/tls-acme: true
+
+  secrets:
+  ## If you're providing your own certificates, please use this to add the certificates as secrets
+  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
+  ## -----BEGIN RSA PRIVATE KEY-----
+  ##
+  ## 名前はさらに設定されたtlsSecretと並ぶ必要があります。
+  ## もしあなたがkube-legoを使っているのであれば、これは必要ありません。
+  ##
+  ## このヘルムチャートの外側で証明書を作成および管理することも可能です。
+  ## 詳細についてはREADME.mdを参照してください。
+  # - name: longhorn.local-tls
+  #   key:
+  #   certificate:

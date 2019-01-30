@@ -1,0 +1,24 @@
+apiVersion: v1
+name: longhorn
+version: 0.1.0
+appVersion: v0.3.3
+kubeVersion: ^1.8.x
+description: Longhornは、Rancher Labsが提供するKubernetes用の分散ブロックストレージシステムです。
+keywords:
+- longhorn
+- storage
+- distributed
+- block
+- device
+- iscsi
+home: https://github.com/rancher/longhorn
+sources:
+- https://github.com/rancher/longhorn
+- https://github.com/rancher/longhorn-engine
+- https://github.com/rancher/longhorn-manager
+- https://github.com/rancher/longhorn-ui
+- https://github.com/rancher/longhorn-tests
+maintainers:
+- name: Shige Harada
+  email: s-harada@truck-one.co.jp
+icon: https://s3.us-east-2.amazonaws.com/longhorn-assets/longhorn-logo.svg

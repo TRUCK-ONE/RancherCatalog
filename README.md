@@ -37,6 +37,8 @@ Helm チャート から Rancher 2.0 カタログに追加される項目
 
 * MySQL
 
+* longhorn
+
 * rocketchat
 
 * wordpress  
