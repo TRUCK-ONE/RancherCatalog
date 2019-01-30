@@ -10,7 +10,7 @@ data:
     [mysqld]
     default-time-zone={{ .Values.mycnf.defaulttimezone }}
     general_log={{ .Values.mycnf.generallog.enable }}
-    general_log_file=/var/lib/mysql/{{ .Values.mycnf.generallog.path }}/{{ .Values.mycnf.generallog.file }}
+    general_log_file=/var/lib/mysql/{{ .Values.mycnf.generallog.path }}{{ .Values.mycnf.generallog.file }}
 {{- else }}
 {{/* values.yml を反映する場合 */}}
 {{- range $key, $val := .Values.configurationFiles }}
