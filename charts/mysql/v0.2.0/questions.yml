@@ -77,6 +77,7 @@ questions:
     description: "Time zoneを入力(日本時間:+9:00)"
     type: enum
     options:
+    - "-4:00"
     - "-3:00"
     - "-2:00"
     - "-1:00"
