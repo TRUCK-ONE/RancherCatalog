@@ -53,3 +53,10 @@ Ranchar の カタログを作成するに参考となるアイテム
 
 [Helm Charts](readme/helmchart/helmchart.md)
 
+---
+# 外部参考URL
+[複数の物理ホストの Debian9 上に Kubernetes (k8s) クラスタを Rancher で立ち上げる](https://www.qoosky.io/techs/1cc644b7b0)
+
+[RancherOS による Kubernetes クラスタの構築](https://www.qoosky.io/techs/43c7e5a787)
+
+[RancherOS で構築した k8s クラスタ用に GlusterFS で簡単な分散ファイルシステムを構築](https://www.qoosky.io/techs/729dd1060f)

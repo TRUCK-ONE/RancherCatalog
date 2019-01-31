@@ -7,6 +7,8 @@
 ## [Actions](0200actions.md)
 ## [Arguments](0300arguments.md)
 ## [Pipelines](0400pipelines.md)
-
 ## [Variables](0500variables.md)
-
+## [Examples](0600examples.md)
+## [Functions](0700functions.md)
+## [Associated templates](0800associatedtemplates.md)
+## [Nested template definitions](0900nestedtemplatedefinitions.md)
