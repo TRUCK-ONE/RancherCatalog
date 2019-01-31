@@ -24,6 +24,9 @@ spec:
           {{- if .Values.persistence.subPath }}
           subPath: {{ .Values.persistence.subPath }}
           {{- end }}
+          {{- if .Values.mycnf.generallog.enable }}
+          subPath: {{ .Values.mycnf.generallog.path }}
+          {{- end }}
       {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
