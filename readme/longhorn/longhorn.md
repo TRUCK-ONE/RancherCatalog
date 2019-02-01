@@ -1,3 +1,26 @@
 # Longhorn
 
-参考URL： [Longhorn](https://github.com/rancher/longhorn)
+参考URL： [github.com](https://github.com/rancher/longhorn)
+／[rancher.com](https://rancher.com/microservices-block-storage/)
+
+LonghornはKubernetes用の分散ブロックストレージシステムです。 Longhornは軽量で信頼性があり、そして使いやすいです。 1つの簡単なコマンドで、Longhornを既存のKubernetesクラスタにデプロイできます。 Longhornが展開されると、Kubernetesクラスタに永続的なボリュームサポートが追加されます。
+
+Longhornは、コンテナとマイクロサービスを使用して分散ブロックストレージを実装しています。 Longhornは、ブロックデバイスボリュームごとに専用のストレージコントローラを作成し、複数のノードに格納されている複数のレプリカにまたがってそのボリュームを同期的に複製します。 ストレージコントローラとレプリカ自体は、Kubernetesを使って編成されています。 Longhornはスナップショット、バックアップをサポートしています。また、スナップショットとバックアップを定期的にスケジュールすることもできます。
+
+あなたはLonghornとそのデザインの詳細をここで読むことができます。
+
+---
+## [Why Longhorn?](0100/0100whylonghorn.md)
+## [機能の概要](0100/0200overviewoffeatures.md)
+## [Quick start guide](0100/0300quickstartguide.md)
+## [Longhorn and other storage systems](0100/0400longhornandotherstoragesystems.md)
+## [Volume as a microservice](0100/0500volumeasamicroservice.md)
+## [Storage orchestration](0100/0600storageorchestration.md)
+## [Replica operations](0100/0700replicaoperations.md)
+## [Replica rebuild](0100/0800replicarebuild.md)
+## [Backup of snapshots](0100/0900backupofsnapshots.md)
+## [Two deployment models](0100/1000twodeploymentmodels.md)
+## [What we have accomplished and unfinished tasks](0100/1100whatwehaveaccomplishedandunfinishedtasks.md)
+## [Acknowledgements](0100/1200acknowledgements.md)
+## [Check out our code](0100/1300checkoutourcode.md)
+
