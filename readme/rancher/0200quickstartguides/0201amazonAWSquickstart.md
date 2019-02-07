@@ -46,4 +46,4 @@ Amazon AWSにデプロイすると料金が発生します。
 ## Destroying the Environment
 
 1. フォルダ `quickstart/aws` から `terraform destroy --auto-Approve` を実行します。
-2. すべてのリソースが破壊されたことの確認を待ちます。
+1. すべてのリソースが破壊されたことの確認を待ちます。

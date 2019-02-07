@@ -35,23 +35,24 @@ Helm チャート から Rancher 2.0 カタログに追加される項目
 [Rancher Catalog](https://github.com/rancher/charts)  
 → Private の Rancher2.0 でも、参照は可能
 
-* MySQL
-
-* longhorn
-
-* rocketchat
-
-* wordpress  
-
-* その他参考URL  
-[Kubernetes:パッケージマネージャHelm](https://qiita.com/tkusumi/items/12857780d8c8463f9b9c)
+- MySQL
+- longhorn
+- rocketchat
+- wordpress  
+- その他参考URL  
+    - [Kubernetes:パッケージマネージャHelm](https://qiita.com/tkusumi/items/12857780d8c8463f9b9c)
 
 ---
 # 参考
 
 Ranchar の カタログを作成するに参考となるアイテム
 
-[Helm Charts](readme/helmchart/helmchart.md)
+- [YAML](readme/yaml/yaml.md)
+- [Helm Charts](readme/helmchart/helmchart.md)
+- [Rancher](readme/rancher/menu.md)
+- [Package template](readme/package/package.md)
+- [configmap](readme/configmap/configmap.md)
+- [longhorn](readme/longhorn/longhorn.md)
 
 ---
 # 外部参考URL
