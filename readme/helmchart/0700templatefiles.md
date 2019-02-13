@@ -1,6 +1,7 @@
 ## Template Files
 
-テンプレートファイルはGoテンプレートを書くための標準的な規約に従います（詳細は [Go text/template パッケージのドキュメント](https://golang.org/pkg/text/template/)を参照してください）。 テンプレートファイルの例は次のようになります。
+テンプレートファイルはGoテンプレートを書くための標準的な規約に従います（詳細は [Go text/template パッケージのドキュメント](https://golang.org/pkg/text/template/)を参照してください）。
+テンプレートファイルの例は次のようになります。
 
 ```
 apiVersion: v1
@@ -31,7 +32,8 @@ spec:
               value: {{default "minio" .Values.storage}}
 ```
 
-[https://github.com/deis/charts](https://github.com/deis/charts)に大まかに基づいている上記の例は、Kubernetesレプリケーションコントローラのテンプレートです。 次の4つのテンプレート値（通常はファイル(values.yaml) に定義されています）を使用できます。
+[https://github.com/deis/charts](https://github.com/deis/charts)に大まかに基づいている上記の例は、Kubernetesレプリケーションコントローラのテンプレートです。
+次の4つのテンプレート値（通常はファイル(values.yaml) に定義されています）を使用できます。
 
 * imageRegistry：Docker image のソースレジストリ
 * dockerTag：docker image のタグ

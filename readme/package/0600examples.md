@@ -1,6 +1,8 @@
 # Examples
 
-以下は、パイプラインと変数を説明する1行のテンプレートの例です。 すべて引用符で囲まれた単語 "output"を生成します。
+以下は、パイプラインと変数を説明する1行のテンプレートの例です。
+すべて引用符で囲まれた単語 "output"を生成します。
+
 ```
 {{"\"output\""}}
 	A string constant.
@@ -26,3 +28,4 @@
 {{with $x := "output"}}{{$x | printf "%q"}}{{end}}
 	The same, but pipelined.
 ```
+

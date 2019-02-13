@@ -4,6 +4,7 @@
 `kubectl create configmap` を使用して、個々のファイルから、または複数のファイルからConfigMapを作成できます。
 
 例：
+
 ```
 kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/kubectl/game.properties
 ```
@@ -26,6 +27,7 @@ game.properties:        158 bytes
 ```
 kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/kubectl/game.properties --from-file=configure-pod-container/configmap/kubectl/ui.properties
 ```
+
 ```
 kubectl describe configmaps game-config-2
 Name:           game-config-2
@@ -38,7 +40,9 @@ Data
 game.properties:        158 bytes
 ui.properties:          83 bytes
 ```
+
 envファイルからConfigMapを作成するには、--from-env-fileオプションを使用します。次に例を示します。
+
 ```
 # Env-files contain a list of environment variables.
 # These syntax rules apply:
@@ -55,14 +59,18 @@ allowed="true"
 
 # This comment and the empty line above it are ignored
 ```
+
 ```
 kubectl create configmap game-config-env-file \
         --from-env-file=configure-pod-container/configmap/kubectl/game-env-file.properties
 ```
+
 次のConfigMapが生成されます。
+
 ```
 kubectl get configmap game-config-env-file -o yaml
 ```
+
 ```
 apiVersion: v1
 data:
@@ -78,17 +86,22 @@ metadata:
   selfLink: /api/v1/namespaces/default/configmaps/game-config-env-file
   uid: d9d1ca5b-eb34-11e7-887b-42010a8002b8
 ```
+
 --from-env-fileを複数回渡して複数のデータソースからConfigMapを作成する場合、最後のenv-fileのみが使用されます。
+
 ```
 wget https://k8s.io/docs/tasks/configure-pod-container/configmap/kubectl/ui-env-file.properties -O configure-pod-container/configmap/kubectl/ui-env-file.properties
 kubectl create configmap config-multi-env-files \
         --from-env-file=configure-pod-container/configmap/kubectl/game-env-file.properties \
         --from-env-file=configure-pod-container/configmap/kubectl/ui-env-file.properties
 ```
+
 次のConfigMapが生成されます。
+
 ```
 kubectl get configmap config-multi-env-files -o yaml
 ```
+
 ```
 apiVersion: v1
 data:

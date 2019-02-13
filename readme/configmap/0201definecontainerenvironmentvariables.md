@@ -2,6 +2,7 @@
 ## Define container environment variables with data from multiple ConfigMaps
 
 * 前の例と同様に、最初にConfigMapsを作成します。
+
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -11,6 +12,7 @@ metadata:
 data:
   special.how: very
 ```
+
 ```
 apiVersion: v1
 kind: ConfigMap
@@ -20,7 +22,9 @@ metadata:
 data:
   log_level: INFO
 ```
+
 * Pod仕様の環境変数を定義します。
+
 ```
 apiVersion: v1
 kind: Pod
@@ -44,4 +48,5 @@ spec:
               key: log_level
   restartPolicy: Never
 ```
+
 * ポッド仕様への変更を保存します。 現在、Podの出力にはSPECIAL_LEVEL_KEY = veryとLOG_LEVEL = INFOが含まれています。

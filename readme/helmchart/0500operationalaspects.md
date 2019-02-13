@@ -14,7 +14,8 @@
 * replicaset "B-ReplicaSet"
 * service "B-Service"
 
-チャートAのインストール/アップグレード後に、単一のHelmリリースが作成/変更されます。 このリリースでは、上記のKubernetesオブジェクトすべてを次の順序で作成または更新します。
+チャートAのインストール/アップグレード後に、単一のHelmリリースが作成/変更されます。
+このリリースでは、上記のKubernetesオブジェクトすべてを次の順序で作成または更新します。
 
 * A-Namespace
 * B-Namespace

@@ -5,6 +5,7 @@ $(VAR_NAME) Kubernetes置換構文を使用して、Pod仕様のコマンドセ�
 例：
 
 次のポッド仕様
+
 ```
 apiVersion: v1
 kind: Pod
@@ -28,7 +29,9 @@ spec:
               key: SPECIAL_TYPE
   restartPolicy: Never
 ```
+
 テストコンテナに次の出力を生成します。
+
 ```
 very charm
 ```

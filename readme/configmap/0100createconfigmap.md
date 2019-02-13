@@ -1,9 +1,11 @@
 # ConfigMap の作成
 
 コマンド `kubectl create configmap` を使用して、ディレクトリー、ファイル、またはリテラル値から構成マップを作成します。
+
 ```
 kubectl create configmap <map-name> <data-source>
 ```
+
 ここで、`<map-name>` は ConfigMap に割り当てる名前、`<data-source>` はデータを取得するディレクトリ、ファイル、またはリテラル値です。
 
 データソースはConfigMapのキーと値のペアに対応します。ここで、
@@ -18,19 +20,24 @@ kubectl create configmap <map-name> <data-source>
 `kubectl create configmap`を使用して、同じディレクトリ内の複数のファイルから ConfigMap を作成できます。
 
 例：
+
 ```
 mkdir -p configure-pod-container/configmap/kubectl/
 wget https://k8s.io/docs/tasks/configure-pod-container/configmap/kubectl/game.properties -O configure-pod-container/configmap/kubectl/game.properties
 wget https://k8s.io/docs/tasks/configure-pod-container/configmap/kubectl/ui.properties -O configure-pod-container/configmap/kubectl/ui.properties
 kubectl create configmap game-config --from-file=configure-pod-container/configmap/kubectl/
 ```
+
 ディレクトリ(configure-pod-container/configmap/kubectl/) の内容を結合します
+
 ```
 ls configure-pod-container/configmap/kubectl/
 game.properties
 ui.properties
 ```
+
 次のConfigMapに入れます。
+
 ```
 kubectl describe configmaps game-config
 Name:           game-config
@@ -43,10 +50,13 @@ Data
 game.properties:        158 bytes
 ui.properties:          83 bytes
 ```
+
 ディレクトリ(configure-pod-container/configmap/kubectl/) 内のファイル (game.properties) とファイル (ui.properties)は、ConfigMapのデータセクションにあります。
+
 ```
 kubectl get configmaps game-config -o yaml
 ```
+
 ```
 apiVersion: v1
 data:
