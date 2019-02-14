@@ -21,4 +21,4 @@ LinuxカーネルデバイスはDockerボリュームのバックアップに適
 維持されます。
 
 Longhornは100％オープンソースソフトウェアです。 
-LonghornはGitHubの[https://github.com/rancher/longhorn]からダウンロードできます。
+LonghornはGitHubの[https://github.com/rancher/longhorn](https://github.com/rancher/longhorn)からダウンロードできます。

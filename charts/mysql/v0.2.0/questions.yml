@@ -18,7 +18,7 @@ questions:
     type: string
     label: Image Name
   - variable: imageTag
-    default: "8.0.13"
+    default: "8.0.15"
     description: "Docker Image tag"
     type: string
     label: Image Tag
@@ -79,6 +79,7 @@ questions:
     description: "Time zoneを入力(日本時間:+9:00)"
     type: enum
     options:
+    - "-8:00"
     - "-7:00"
     - "-6:00"
     - "-5:00"

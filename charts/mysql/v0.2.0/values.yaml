@@ -4,8 +4,9 @@
 # docker image
 # 2018.12.10 S.Harada 最新イメージ(8.0.13)に変更
 # 2019.01.16 S.Harada 記載タグを変更 ← questions.yml と templates/deployment.yaml に 合わせる
+# 2019.02.14 S.Harada 最新イメージ(8.0.15)に変更
 iamge: "mysql"
-imageTag: "8.0.13"
+imageTag: "8.0.15"
 
 ## root ユーザーのパスワード設定
 ##
