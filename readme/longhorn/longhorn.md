@@ -112,13 +112,144 @@ Server Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.1", GitCom
 
 ## Upgrading(アップグレード)
 
-Longhorn App v0.1またはv0.2をv0.3にアップグレードする方法については、[このドキュメント]()を参照してください。
+Longhorn App v0.1またはv0.2をv0.3にアップグレードする方法については、[このドキュメント](0200/upgrade.md)を参照してください。
 
 ## Deployment(展開)
----
-この間略
 
----
+KubernetesクラスタでLonghornの展開を作成するのは簡単です。
+
+```
+kubectl apply -f https://raw.githubusercontent.com/rancher/longhorn/master/deploy/longhorn.yaml
+```
+
+Google Kubernetes Engine（GKE）ユーザーの場合は、続行する前に[こちら](0200/gke.md)を参照してください。
+
+あなたがyamlファイルで見ることができるように、LonghornマネージャとLonghornドライバは、Longhornシステムと呼ばれる別の名前空間のデーモンセットとして配置されるでしょう。
+
+利用可能な2つのドライバ（CSIとFlexvolume）のうちの1つは、ユーザーの環境に基づいて自動的に選択されます。
+ユーザーは必要に応じて自動選択を無効にすることもできます。 詳細は[こちら](0200/driver.md)をご覧ください。
+
+一方のドライバを介して作成および使用されたボリュームが、もう一方のドライバを使用してKubernetesによって再認識されることはありません。
+そのため、古いドライバを使用して既存のボリュームを作成している場合は、（アップグレード中などに）ドライバを切り替えないでください。
+
+これらのポッドが次のように正しく起動されたことを確認したら、Longhornを正常にデプロイしました。
+
+LonghornがCSIドライバを使用して展開された場合（csi-attacher/csi-provisioner/longhorn-csi-pluginが存在します）：
+
+```
+# kubectl -n longhorn-system get pod
+NAME                                        READY     STATUS    RESTARTS   AGE
+csi-attacher-0                              1/1       Running   0          6h
+csi-provisioner-0                           1/1       Running   0          6h
+engine-image-ei-57b85e25-8v65d              1/1       Running   0          7d
+engine-image-ei-57b85e25-gjjs6              1/1       Running   0          7d
+engine-image-ei-57b85e25-t2787              1/1       Running   0          7d
+longhorn-csi-plugin-4cpk2                   2/2       Running   0          6h
+longhorn-csi-plugin-ll6mq                   2/2       Running   0          6h
+longhorn-csi-plugin-smlsh                   2/2       Running   0          6h
+longhorn-driver-deployer-7b5bdcccc8-fbncl   1/1       Running   0          6h
+longhorn-manager-7x8x8                      1/1       Running   0          6h
+longhorn-manager-8kqf4                      1/1       Running   0          6h
+longhorn-manager-kln4h                      1/1       Running   0          6h
+longhorn-ui-f849dcd85-cgkgg                 1/1       Running   0          5d
+```
+
+またはFlexVolumeドライバ（Longhorn-flexvolume-driverが存在する）の場合：
+
+```
+# kubectl -n longhorn-system get pod
+NAME                                        READY     STATUS    RESTARTS   AGE
+engine-image-ei-57b85e25-8v65d              1/1       Running   0          7d
+engine-image-ei-57b85e25-gjjs6              1/1       Running   0          7d
+engine-image-ei-57b85e25-t2787              1/1       Running   0          7d
+longhorn-driver-deployer-5469b87b9c-b9gm7   1/1       Running   0          2h
+longhorn-flexvolume-driver-lth5g            1/1       Running   0          2h
+longhorn-flexvolume-driver-tpqf7            1/1       Running   0          2h
+longhorn-flexvolume-driver-v9mrj            1/1       Running   0          2h
+longhorn-manager-7x8x8                      1/1       Running   0          9h
+longhorn-manager-8kqf4                      1/1       Running   0          9h
+longhorn-manager-kln4h                      1/1       Running   0          9h
+longhorn-ui-f849dcd85-cgkgg                 1/1       Running   0          5d
+```
+
+### Access the UI
+
+UI用の外部サービスIPを取得するには、`kubectl -n longhorn-system get svc` を使用します。
+
+```
+NAME                TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)        AGE
+longhorn-backend    ClusterIP      10.20.248.250   <none>           9500/TCP       58m
+longhorn-frontend   LoadBalancer   10.20.245.110   100.200.200.123   80:30697/TCP   58m
+```
+
+KubernetesクラスタがLoadBalancerの作成をサポートしている場合、ユーザーはLonghornフロントエンドのEXTERNAL-IP（上記の場合は100.200.200.123）を使用してLonghorn UIにアクセスできます。
+それ以外の場合、ユーザーは <node_ip>:<port>（上記の場合、portは30697）を使用してUIにアクセスできます。
+
+Longhorn UIはLonghornマネージャAPIに接続し、システムの概要、ボリューム操作、およびスナップショット/バックアップ操作を提供します。
+ユーザーがLonghorn UIをチェックアウトすることを強くお勧めします。
+
+現在のUIは現時点では認証されていないことに注意してください。
+
+## Use Longhorn with Kubernetes
+
+Longhornは、Longhornドライバの1つを通して、永続的なボリュームをKubernetesに直接提供します。
+どのドライバを使用していても、Kubernetes StorageClass を使用して永続ボリュームをプロビジョニングできます。
+
+次のコマンドを使用して、longhornという名前のデフォルトのLonghorn StorageClass を作成します。
+
+```
+kubectl create -f https://raw.githubusercontent.com/rancher/longhorn/master/examples/storageclass.yaml
+```
+
+これでLonghornを使ってポッドを作成できます。
+
+```
+kubectl create -f https://raw.githubusercontent.com/rancher/longhorn/master/examples/pvc.yaml
+```
+
+YAML は2つの部分から成ります
+
+1. Longhorn StorageClassを使用してPVCを作成します。
+   
+    ```
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: longhorn-volv-pvc
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 2Gi
+    ```
+
+2. 永続的なボリュームとしてポッドで使用します。
+
+    ```
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: volume-test
+      namespace: default
+    spec:
+      containers:
+      - name: volume-test
+        image: nginx:stable-alpine
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: volv
+          mountPath: /data
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: volv
+        persistentVolumeClaim:
+          claimName: longhorn-volv-pvc
+    ```
+
+より多くの例は./examples/にあります。
 
 ## Highlight features
 
@@ -155,7 +286,7 @@ Longhornのバックアップは、Longhornシステムの外部にある2次ス
 バックアップターゲットは、Longhornのバックアップストアを表します。
 バックアップターゲットは、Settings / General / BackupTargetで設定できます。
 
-バックアップ先の設定方法については、[こちら]()を参照してください。
+バックアップ先の設定方法については、[こちら](0200/backup.md)を参照してください。
 
 ### Recurring snapshot and backup(定期的なスナップショットとバックアップ)
 
@@ -177,6 +308,60 @@ Longhornは常に、各ボリュームに対して少なくとも一定数の健
 現在の正常なレプリカ数が指定されたレプリカ数より多い場合、Longhornは何もしません。
 後者の状況では、ユーザーが1つ以上の正常なレプリカを削除した場合、または正常なレプリカが失敗した場合、正常なレプリカの総数が指定したレプリカ数を下回らない限り、Longhornは新しいレプリカの再構築を開始しません。
 
----
+## Other features(その他の機能)
 
-以下略
+### Multiple disks
+### iSCSI
+### Base image
+
+## Usage guide(利用ガイド)
+
+### Restoring Stateful Set volumes
+### [Google Kubernetes Engine](0200/gke.md)
+### [Upgrade](0200/upgrade.md)
+
+## Troubleshooting
+
+トラブルシューティングガイドは[こちら]()をご覧ください。
+
+## Uninstall Longhorn
+
+1. Kubernetesクラスタへの損傷を防ぐために、Longhornボリューム（PersistentVolume、PersistentVolumeClaim、StorageClass、Deployment、StatefulSet、DaemonSetなど）を使用してすべてのKubernetesワークロードを削除することをお勧めします。
+
+2. アンインストールジョブを作成してシステムからCRDsをクリーンにパージし、成功を待ちます。
+
+    ```
+    kubectl create -f https://raw.githubusercontent.com/rancher/longhorn/master/uninstall/uninstall.yaml
+    kubectl -n longhorn-system get job/longhorn-uninstall -w
+    ```
+
+出力例：
+
+    ```
+    $ kubectl create -f https://raw.githubusercontent.com/rancher/longhorn/master/uninstall/uninstall.yaml
+    job.batch/longhorn-uninstall created
+    $ kubectl -n longhorn-system get job/longhorn-uninstall -w
+    NAME                 DESIRED   SUCCESSFUL   AGE
+    longhorn-uninstall   1         0            3s
+    longhorn-uninstall   1         1            45s
+    ^C
+    ```
+
+3. 残りの部品を取り外します。
+    
+    ```
+    kubectl delete -f https://raw.githubusercontent.com/rancher/longhorn/master/deploy/longhorn.yaml
+    ```
+
+## License
+
+Copyright (c) 2014-2019 [Rancher Labs, Inc.](https://rancher.com/)
+
+Apache License、Version 2.0（以下「ライセンス」）に基づきライセンスされています。
+ライセンスに準拠している場合を除き、このファイルを使用することはできません。
+あなたは、ライセンスのコピーを以下から入手することができます。
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+適用法で義務付けられている場合、または書面で合意されている場合を除き、ライセンスに基づいて頒布されるソフトウェアは、明示的または黙示的を問わず、「現状のまま」ベースで保証されます。
+ライセンスに基づく許可および制限を規定する特定の言語については、ライセンスを参照してください。
