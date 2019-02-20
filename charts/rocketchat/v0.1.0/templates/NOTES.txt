@@ -1,27 +1,27 @@
-Rocket.Chat can be accessed via port 80 on the following DNS name from within your cluster:
+Rocket.Chat は、クラスタ内から次のDNS名のポート80を介してアクセスできます。:
 
 - http://{{ template "rocketchat.fullname" . }}.{{ .Release.Namespace }}
 
-You can easily connect to the remote instance from your browser. Forward the webserver port to localhost:8888
+ブラウザから簡単にリモートインスタンスに接続できます。 Webサーバーのポートをlocalhost：8888に転送します。
 
 - kubectl port-forward --namespace {{ .Release.Namespace }} $(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "rocketchat.name" . }},release={{ .Release.Name }}" -o jsonpath='{ .items[0].metadata.name }') 8888:3000
 
-You can also connect to the container running Rocket.Chat. To open a shell session in the pod run the following:
+Rocket.Chatを実行しているコンテナに接続することもできます。 ポッドでシェルセッションを開くには、次のコマンドを実行します。:
 
 - kubectl exec -i -t --namespace {{ .Release.Namespace }} $(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "rocketchat.name" . }},release={{ .Release.Name }}" -o jsonpath='{.items[0].metadata.name}') /bin/sh
 
-To trail the logs for the Rocket.Chat pod run the following:
+Rocket.Chatポッドのログを追跡するには、次のコマンドを実行します。:
 
 - kubectl logs -f --namespace {{ .Release.Namespace }} $(kubectl get pods --namespace {{ .Release.Namespace }} -l "app={{ template "rocketchat.name" . }},release={{ .Release.Name }}" -o jsonpath='{ .items[0].metadata.name }')
 
 {{- if .Values.ingress.enabled }}
 
-Rocket.Chat will be available at the URL:
+Rocket.ChatはURLで公開されます。:
 
 - http://{{ .Values.host }}
 {{ else }}
 
-To expose Rocket.Chat via an Ingress you need to set host and enable ingress.
+Ingressを介してRocket.Chatを公開するには、ホストを設定して入力を有効にする必要があります。
 
 helm install --set host=chat.yourdomain.com --set ingress.enabled=true stable/rocketchat
 {{- end -}}

@@ -1,0 +1,26 @@
+# (必須)チャート名
+name: mongodb
+
+# (必須)SemVer X.Y.Z
+version: 0.1.0
+
+# 2019.2.21 S.Harada 最新に変更
+# (option)アプリコンテナのバージョン(SemVer)
+#appVersion: 4.0.6
+appVersion: 4.1.8
+description: NoSQL document-oriented database that stores JSON-like documents with dynamic schemas, simplifying the integration of data in content-driven applications.
+keywords:
+- mongodb
+- database
+- nosql
+- cluster
+- replicaset
+- replication
+home: https://mongodb.org
+icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+sources:
+- https://github.com/bitnami/bitnami-docker-mongodb
+maintainers:
+- name: Shige Harada
+  email: s-harada@truck-one.co.jp
+engine: gotpl

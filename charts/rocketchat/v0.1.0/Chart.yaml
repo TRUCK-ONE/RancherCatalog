@@ -39,7 +39,7 @@ sources:
 
 # (option)maintainer
 maintainers:
-  - name: RocketChat
+  - name: Shige Harada
     email: s-harada@truck-one.co.jp
 
 # テンプレートエンジンの名前(デフォルト：gotpl)
