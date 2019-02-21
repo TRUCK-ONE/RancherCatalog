@@ -1,6 +1,10 @@
 # MongoDB
 
-[MongoDB](https://www.mongodb.com/) is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas, making the integration of data in certain types of applications easier and faster.
+[MongoDB](https://www.mongodb.com/)は、クロスプラットフォームのドキュメント指向データベースです。 NoSQLデータベースとして分類されたMongoDBは、動的スキーマを持つJSONのような文書を優先して従来のテーブルベースのリレーショナルデータベース構造を避け、特定の種類のアプリケーションでのデータの統合をより簡単かつ迅速にします。
+
+追記：
+この Chart は、MongoDB のオフィシャルではなく、[Bitnami](https://bitnami.com/)が、提供しているプロジェクトを使用しております。
+
 
 ## TL;DR;
 
@@ -8,44 +12,44 @@
 $ helm install stable/mongodb
 ```
 
-## Introduction
+## 前書き
 
-This chart bootstraps a [MongoDB](https://github.com/bitnami/bitnami-docker-mongodb) deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+この Chart は、[Helm](https://helm.sh)パッケージマネージャを使用して、[Kubernetes](http://kubernetes.io)クラスタ上の[MongoDB](https://github.com/bitnami/bitnami-docker-mongodb)デプロイメントをブートストラップします。
 
-Bitnami charts can be used with [Kubeapps](https://kubeapps.com/) for deployment and management of Helm Charts in clusters.
+[Bitnami](https://bitnami.com/)チャートは、クラスタ内のHelmチャートの展開と管理のために[Kubeapps](https://kubeapps.com/)と一緒に使用できます。
 
-## Prerequisites
+## 前提条件
 
 - Kubernetes 1.4+ with Beta APIs enabled
 - PV provisioner support in the underlying infrastructure
 
-## Installing the Chart
+## Chart の インストール
 
-To install the chart with the release name `my-release`:
+チャートをリリース名 `my-release` でインストールするには、次の手順を実行します。
 
 ```bash
 $ helm install --name my-release stable/mongodb
 ```
 
-The command deploys MongoDB on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+このコマンドは、デフォルト設定のKubernetesクラスタにMongoDBをデプロイします。 構成セクションには、インストール中に構成できるパラメーターがリストされています。
 
-> **Tip**: List all releases using `helm list`
+> **Tip**: `helm list` を使ってすべてのリリースを一覧表示する
 
-## Uninstalling the Chart
+## Chart の アンインストール
 
-To uninstall/delete the `my-release` deployment:
+`my-release` デプロイメントをアンインストール/削除するには：
 
 ```bash
 $ helm delete my-release
 ```
 
-The command removes all the Kubernetes components associated with the chart and deletes the release.
+このコマンドは、チャートに関連付けられているすべてのKubernetesコンポーネントを削除し、リリースを削除します。
 
 ## Configuration
 
-The following table lists the configurable parameters of the MongoDB chart and their default values.
+次の表は、MongoDBチャートの設定可能なパラメータとそれらのデフォルト値の一覧です。
 
-| Parameter                                          | Description                                                                                  | Default                                                 |
+| Parameter                                          | 説明                                                                                  | Default                                                 |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | `global.imageRegistry`                             | Global Docker image registry                                                                 | `nil`                                                   |
 | `image.registry`                                   | MongoDB image registry                                                                       | `docker.io`                                             |
@@ -53,17 +57,17 @@ The following table lists the configurable parameters of the MongoDB chart and t
 | `image.tag`                                        | MongoDB Image tag                                                                            | `{VERSION}`                                             |
 | `image.pullPolicy`                                 | Image pull policy                                                                            | `Always`                                                |
 | `image.pullSecrets`                                | Specify docker-registry secret names as an array                                             | `[]` (does not add image pull secrets to deployed pods) |
-| `image.debug`                                      | Specify if debug logs should be enabled                                                      | `false`                                                 |
-| `usePassword`                                      | Enable password authentication                                                               | `true`                                                  |
+| `image.debug`                                      | デバッグログを有効にするかどうかを指定                                                   | `false`                                                 |
+| `usePassword`                                      | パスワード認証を有効にする                                                               | `true`                                                  |
 | `existingSecret`                                   | Existing secret with MongoDB credentials                                                     | `nil`                                                   |
 | `mongodbRootPassword`                              | MongoDB admin password                                                                       | `random alphanumeric string (10)`                       |
 | `mongodbUsername`                                  | MongoDB custom user                                                                          | `nil`                                                   |
 | `mongodbPassword`                                  | MongoDB custom user password                                                                 | `random alphanumeric string (10)`                       |
 | `mongodbDatabase`                                  | Database to create                                                                           | `nil`                                                   |
-| `mongodbEnableIPv6`                                | Switch to enable/disable IPv6 on MongoDB                                                     | `true`                                                  |
-| `mongodbSystemLogVerbosity`                        | MongoDB systen log verbosity level                                                           | `0`                                                     |
-| `mongodbDisableSystemLog`                          | Whether to disable MongoDB system log or not                                                 | `false`                                                 |
-| `mongodbExtraFlags`                                | MongoDB additional command line flags                                                        | []                                                      |
+| `mongodbEnableIPv6`                                | MongoDBでIPv6を有効/無効に切り替える                                                    | `true`                                                  |
+| `mongodbSystemLogVerbosity`                        | MongoDBシステムログの詳細レベル                                                          | `0`                                                     |
+| `mongodbDisableSystemLog`                          | MongoDBシステムログを無効にするかどうか                                                 | `false`                                                 |
+| `mongodbExtraFlags`                                | MongoDBの追加のコマンドラインフラグ                                                        | []                                                      |
 | `service.annotations`                              | Kubernetes service annotations                                                               | `{}`                                                    |
 | `service.type`                                     | Kubernetes Service type                                                                      | `ClusterIP`                                             |
 | `service.clusterIP`                                | Static clusterIP or None for headless services                                               | `nil`                                                   |
@@ -121,7 +125,7 @@ The following table lists the configurable parameters of the MongoDB chart and t
 | `metrics.serviceMonitor.alerting.additionalLabels` | Used to pass Labels that are required by the Installed Prometheus Operator                   | {}                                                      |
 
 
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+`helm install` の `--set key = value [、key = value]` 引数を使用して各パラメーターを指定します。 例えば、
 
 ```bash
 $ helm install --name my-release \
@@ -129,19 +133,19 @@ $ helm install --name my-release \
     stable/mongodb
 ```
 
-The above command sets the MongoDB `root` account password to `secretpassword`. Additionally, it creates a standard database user named `my-user`, with the password `my-password`, who has access to a database named `my-database`.
+上記のコマンドはMongoDBの `root` アカウントのパスワードを `secretpassword` に設定します。さらに、 `my-database` という名前のデータベースにアクセスできる、パスワード `my-password` を持つ `my-user` という名前の標準データベースユーザーを作成します。
 
-Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+あるいは、チャートのインストール中に、パラメーターの値を指定するYAMLファイルを提供することもできます。 例えば、
 
 ```bash
 $ helm install --name my-release -f values.yaml stable/mongodb
 ```
 
-> **Tip**: You can use the default [values.yaml](values.yaml)
+> **Tip**: デフォルトの[values.yaml](values.yaml)を使用することもできます。 
 
 ## Replication
 
-You can start the MongoDB chart in replica set mode with the following command:
+次のコマンドを使用して、MongoDBチャートをレプリカセットモードで起動できます。
 
 ```bash
 $ helm install --name my-release stable/mongodb --set replicaSet.enabled=true
@@ -149,43 +153,44 @@ $ helm install --name my-release stable/mongodb --set replicaSet.enabled=true
 
 ## Production settings and horizontal scaling
 
-The [values-production.yaml](values-production.yaml) file consists a configuration to deploy a scalable and high-available MongoDB deployment for production environments. We recommend that you base your production configuration on this template and adjust the parameters appropriately.
+ファイル( [values-production.yaml](values-production.yaml) )は、本番環境用にスケーラブルで可用性の高いMongoDBデプロイメントをデプロイするための設定です。 実稼働構成をこのテンプレートに基づいて作成し、パラメーターを適切に調整することをお勧めします。
+
 
 ```console
 $ curl -O https://raw.githubusercontent.com/kubernetes/charts/master/stable/mongodb/values-production.yaml
 $ helm install --name my-release -f ./values-production.yaml stable/mongodb
 ```
 
-To horizontally scale this chart, run the following command to scale the number of secondary nodes in your MongoDB replica set.
+このグラフを水平方向に拡大縮小するには、次のコマンドを実行してMongoDBレプリカセット内のセカンダリノードの数を拡大縮小します。
 
 ```console
 $ kubectl scale statefulset my-release-mongodb-secondary --replicas=3
 ```
 
-Some characteristics of this chart are:
+このチャートの特徴は次のとおりです。
 
-- Each of the participants in the replication has a fixed stateful set so you always know where to find the primary, secondary or arbiter nodes.
-- The number of secondary and arbiter nodes can be scaled out independently.
-- Easy to move an application from using a standalone MongoDB server to use a replica set.
+- レプリケーションの各参加者には固定されたステートフルセットがあるため、プライマリ、セカンダリ、またはアービターノードを見つける場所が常にわかります。
+- セカンダリノードとアービターノードの数は、独立してスケールアウトできます。
+- レプリカセットを使用するためにスタンドアロンのMongoDBサーバーを使用することからアプリケーションを移動することは簡単です。
 
-## Initialize a fresh instance
+## 新しいインスタンスを初期化する
 
-The [Bitnami MongoDB](https://github.com/bitnami/bitnami-docker-mongodb) image allows you to use your custom scripts to initialize a fresh instance. In order to execute the scripts, they must be located inside the chart folder `files/docker-entrypoint-initdb.d` so they can be consumed as a ConfigMap.
+[Bitnami MongoDB](https://github.com/bitnami/bitnami-docker-mongodb) イメージを使用すると、カスタムスクリプトを使用して新しいインスタンスを初期化できます。 スクリプトを実行するには、スクリプトをチャートフォルダ `files/docker-entrypoint-initdb.d` の内側に配置して、ConfigMapとして使用できるようにする必要があります。
 
-The allowed extensions are `.sh`, and `.js`.
+許可されている拡張子は `.sh`、および`.js`です。
 
-## Persistence
+## 持続性
 
-The [Bitnami MongoDB](https://github.com/bitnami/bitnami-docker-mongodb) image stores the MongoDB data and configurations at the `/bitnami/mongodb` path of the container.
+[Bitnami MongoDB](https://github.com/bitnami/bitnami-docker-mongodb)イメージは、MongoDBデータおよび構成をコンテナーの `/bitnami/mongodb` パスに格納します。
 
-The chart mounts a [Persistent Volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) at this location. The volume is created using dynamic volume provisioning.
+チャートはこの場所に [Persistent Volume](http://kubernetes.io/docs/user-guide/persistent-volumes/) をマウントします。 ボリュームは動的ボリュームプロビジョニングを使用して作成されます。
 
 ## Upgrading
 
 ### To 5.0.0
 
-When enabling replicaset configuration, backwards compatibility is not guaranteed unless you modify the labels used on the chart's statefulsets.
-Use the workaround below to upgrade from versions previous to 5.0.0. The following example assumes that the release name is `my-release`:
+レプリカセット設定を有効にした場合、チャートのステートフルセットで使用されているラベルを変更しない限り、下位互換性は保証されません。
+以下の回避策を使用して、5.0.0より前のバージョンからアップグレードしてください。 次の例では、リリース名が `my-release`であると仮定しています。
 
 ```consoloe
 $ kubectl delete statefulset my-release-mongodb-arbiter my-release-mongodb-primary my-release-mongodb-secondary --cascade=false

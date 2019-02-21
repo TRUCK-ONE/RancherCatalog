@@ -16,7 +16,7 @@ questions:
     type: string
     label: MongoDB Image Name
   - variable: image.tag
-    default: "4.0.3"
+    default: "4.1.8"
     description: "MongoDB image tag"
     type: string
     label: Image Tag
@@ -34,7 +34,7 @@ questions:
     show_if: "defaultImage=false&&metrics.enabled=true"
 - variable: usePassword
   default: true
-  description: "Enable Password Authentication"
+  description: "パスワード認証を有効にする。"
   type: boolean
   label: Enable Password Authentication
   required: true
@@ -60,7 +60,7 @@ questions:
     required: true
 - variable: replicaSet.enabled
   default: true
-  description: "Switch to standalone or replicaSet mongodb instance"
+  description: "スタンドアロンまたはレプリカに設定するmongodbインスタンスを設定する。"
   type: boolean
   label: Enable MongoDB ReplicaSet
   required: true
@@ -69,18 +69,18 @@ questions:
   subquestions:
   - variable: replicaSet.name
     default: "rs0"
-    description: "Name of the replica set"
+    description: "レプリカセットの名前"
     type: string
     label: ReplicaSet Name
     required: true
   - variable: replicaSet.key
     default: ""
-    description: "Key used for replica set authentication, will be auto-generated if not set"
+    description: "レプリカセット認証に使用されるキー。設定されていない場合は自動生成されます。"
     type: string
     label: ReplicaSet Auth Key
 - variable: persistence.enabled
   default: "false"
-  description: "Enable persistent volume for MongoDB"
+  description: "MongoDBの固定ボリュームを有効にする。"
   type: boolean
   required: true
   label: MongoDB Persistent Volume Enabled
@@ -89,24 +89,24 @@ questions:
   subquestions:
   - variable: persistence.size
     default: "8Gi"
-    description: "MongoDB Persistent Volume Size"
+    description: "MongoDBの永続ボリュームサイズ"
     type: string
     label: MongoDB Volume Size
     required: true
   - variable: persistence.storageClass
     default: ""
-    description: "If undefined or set to null, using the default storageClass. Defaults to null."
+    description: "未定義の場合、またはnullに設定されている場合は、デフォルトのstorageClassを使用します。 デフォルトはnullです。"
     type: storageclass
     label: Storage Class for MongoDB
   - variable: persistence.existingClaim
     default: ""
-    description: "If not empty, uses the specified existing PVC instead of creating new one"
+    description: "空でない場合は、新しいPVCを作成するのではなく、指定された既存のPVCを使用します。"
     type: pvc
     label: Uses Existing Persistent Volume Claim for LocalStorage
     show_if: "persistence.enabled=true&&replicaSet.enabled=false"
 - variable: service.type
   default: "ClusterIP"
-  description: "MongoDB Kubernetes Service type"
+  description: "MongoDB Kubernetesサービスの種類"
   type: enum
   group: "Service Settings"
   options:
@@ -118,7 +118,7 @@ questions:
   subquestions:
   - variable: service.nodePort
     default: ""
-    description: "NodePort port number(to set explicitly, choose port between 30000-32767)"
+    description: "NodePortポート番号（明示的に設定するには、30000から32767の間でポートを選択します）"
     type: int
     min: 30000
     max: 32767
@@ -134,7 +134,7 @@ questions:
   subquestions:
   - variable: metrics.serviceMonitor.enabled
     default: false
-    description: "If the operator is installed in your cluster, set to true to create a Service Monitor Entry"
+    description: "オペレータがクラスタにインストールされている場合は、trueに設定してサービスモニタエントリを作成します。"
     type: boolean
     label: Create ServiceMonitor Resource for Scraping Metrics Using PrometheusOperator
     required: true

@@ -1,3 +1,3 @@
-You can copy here your custom .sh, or .js file so they are executed during the first boot of the image.
+カスタムの`.sh`ファイルまたは`.js`ファイルをここにコピーして、イメージの最初の起動時に実行されるようにすることができます。
 
-More info in the [bitnami-docker-mongodb](https://github.com/bitnami/bitnami-docker-mongodb#initializing-a-new-instance) repository.
+[bitnami-docker-mongodb](https://github.com/bitnami/bitnami-docker-mongodb#initializing-a-new-instance) レポジトリの詳細情報。
