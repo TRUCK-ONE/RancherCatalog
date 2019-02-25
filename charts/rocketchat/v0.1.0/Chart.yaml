@@ -30,8 +30,7 @@ keywords:
 home: https://rocket.chat/
 
 # (option)アイコンとして使用される SVG または PNG の URL
-#icon: https://cdn-www.rocket.chat/images/logo/logo.svg
-icon: https://rocket.chat/images/default/logo.svg
+icon: https://raw.githubusercontent.com/RocketChat/Rocket.Chat.Artwork/master/Logos/icon.svg
 
 # (option)ソースコードURL
 sources:

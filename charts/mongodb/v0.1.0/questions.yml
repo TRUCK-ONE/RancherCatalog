@@ -1,6 +1,8 @@
 categories:
 - Database
 - NoSQL
+labels:
+  io.rancher.certified: Arrangement
 questions:
 - variable: defaultImage
   default: "true"

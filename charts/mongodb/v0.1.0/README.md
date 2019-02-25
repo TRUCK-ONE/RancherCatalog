@@ -5,6 +5,10 @@
 追記：
 この Chart は、MongoDB のオフィシャルではなく、[Bitnami](https://bitnami.com/)が、提供しているプロジェクトを使用しております。
 
+## [更新履歴](history.md)
+
+- ver0.1.0  
+  mongoDB を 4.0.6 から 4.1.8 に  
 
 ## TL;DR;
 
