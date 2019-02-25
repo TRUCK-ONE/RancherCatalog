@@ -8,6 +8,9 @@
 既存の `NFS server` に接続するためのものではありません。
 既存の `NFS server` がある場合は、代わりに[NFS Client Provisioner](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)を使用することを検討してください。
 
+## [更新履歴](history.md)
+
+- ver0.1.0
 
 ## TL;DR;
 
