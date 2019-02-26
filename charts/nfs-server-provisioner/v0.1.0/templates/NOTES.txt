@@ -1,11 +1,11 @@
-The NFS Provisioner service has now been installed.
+NFS Provisionerサービスがインストールされました。
 
 {{ if .Values.storageClass.create -}}
-A storage class named '{{ .Values.storageClass.name }}' has now been created
-and is available to provision dynamic volumes.
+'{{.Values.storageClass.name}}'という名前のストレージクラスが作成されました。
+動的ボリュームのプロビジョニングに使用できます。
 
-You can use this storageclass by creating a `PersistentVolumeClaim` with the
-correct storageClassName attribute. For example:
+このストレージクラスを使うには `PersistentVolumeClaim`を作成します。
+正しいstorageClassName属性。 例えば：
 
     ---
     kind: PersistentVolumeClaim
@@ -21,6 +21,7 @@ correct storageClassName attribute. For example:
           storage: 100Mi
 
 {{ else -}}
-A storage class has NOT been created. You may create a custom `StorageClass`
-resource with a `provisioner` attribute of `{{ template "nfs-provisioner.provisionerName" . }}`.
+ストレージクラスが作成されていません。
+あなたはカスタムの `StorageClass`を作成することができます。
+`provisioner` 属性が `{{ template "nfs-provisioner.provisionerName" . }}` を持つリソース
 {{ end -}}
