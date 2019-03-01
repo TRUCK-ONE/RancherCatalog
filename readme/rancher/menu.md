@@ -16,7 +16,7 @@
 >> #### [Workload with Ingress Quick Start](0200quickstartguides/0301Workloadwithingressquickstart.md)
 >> #### [Workload with NodePort Quick Start](0200quickstartguides/0302WorkloadwithNodePortquickstart.md)
 ---
-## Installation
+## [Installation](0300installation/0100installation.md)
 > ### Node Requirements 
 > ### Choosing a Version of Rancher
 > ### Single Node Install
@@ -61,4 +61,27 @@
 ---
 ## Upgrades and Rollbacks
 
+## Backups and Disaster Recovery
 
+## Administration
+
+## Provisioning Kubernetes Clusters
+
+---
+## Kubernetes in Rancher(0800kubernetesrancher/0100kubernetesrancher.md)
+> ### Horizontal Pod Autoscaler
+> ### Using kubectl to Access a Cluster
+> ### Kubeconfig Files
+> ### Editing Clusters
+> ### Projects and Namespaces
+> ### Workloads
+> ### [Load Balancing and Ingresses](0800kubernetesrancher/0800loadbalancingingresses.md)
+>> #### [Load Balancers](0800kubernetesrancher/0801loadbalancers.md)
+>> #### [Ingress](0800kubernetesrancher/0802ingress.md)
+> ### [Service Discovery](0800kubernetesrancher/0900servicediscovery.md)
+> ### Volumes and Storage
+> ### SSL Certificates
+> ### ConfigMaps
+> ### Secrets
+> ### Registries
+> ### Nodes
