@@ -1,5 +1,7 @@
 # Deployment
 
+[参考](https://github.com/kubernetes-incubator/external-storage/blob/master/nfs/docs/deployment.md)
+
 ## Getting the provisioner image
 
 nock-provisionerを実行したいマシンにDockerイメージを取り込むには、それをビルドするか、Quayから最新リリースを入手することができます。

@@ -1,5 +1,7 @@
 # Usage
 
+[参考](https://github.com/kubernetes-incubator/external-storage/blob/master/nfs/docs/usage.md)
+
 nfs-provisionerがデプロイされ、ボリュームをプロビジョニングする必要があるという主張を監視しています。
 要求に対する要求に対して適切に構成されたStorageClassが作成されるまで、そのような要求は存在できません。
 

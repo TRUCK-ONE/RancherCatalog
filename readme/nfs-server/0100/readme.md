@@ -1,5 +1,7 @@
 # nfs-provisioner
 
+[参考](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs)
+
 ```
 quay.io/kubernetes_incubator/nfs-provisioner
 ```
@@ -16,17 +18,84 @@ StorageClassオブジェクトは、GCEやAWSなどのツリー内のプロビ�
 
 
 ## Quickstart
----
 
-中途略
+nfs-provisionerインスタンスの状態とデータを保存するボリュームを選択し、そのボリュームを `deploy/kubernetes/deployment.yaml` の `/export` にマウントします。
+hostPathボリュームである必要はありません。
+PVCになります。
+ボリュームにはサポートされているファイルシステムが必要です。
+Linux上のローカルファイルシステムはサポートされていますが、NFSはサポートされていません。
 
----
+```
+...
+  volumeMounts:
+    - name: export-volume
+      mountPath: /export
+volumes:
+  - name: export-volume
+    hostPath:
+      path: /tmp/nfs-provisioner
+...
+```
+
+指定するStorageClassのプロビジョニングを選択し、 `deploy/kubernetes/deployment.yaml` に設定します。
+
+```
+...
+args:
+  - "-provisioner=example.com/nfs"
+...
+```
+
+配置を作成します。
+
+```
+$ kubectl create -f deploy/kubernetes/deployment.yaml
+service "nfs-provisioner" created
+deployment "nfs-provisioner" created
+```
+
+ClusterRole、ClusterRoleBinding、Role、およびRoleBindingを作成します（これは、クラスタでRBAC認証を使用する場合に必要です。これは、新しいバージョンのkubernetesのデフォルトです）。
+
+```
+$ kubectl create -f deploy/kubernetes/rbac.yaml
+clusterrole.rbac.authorization.k8s.io/nfs-provisioner-runner created
+clusterrolebinding.rbac.authorization.k8s.io/run-nfs-provisioner created
+role.rbac.authorization.k8s.io/leader-locking-nfs-provisioner created
+rolebinding.rbac.authorization.k8s.io/leader-locking-nfs-provisioner created
+```
+
+プロビジョニング `example.com/nfs` を使用して、 "example-nfs"という名前のStorageClassを作成します。
+
+```
+$ kubectl create -f deploy/kubernetes/class.yaml
+storageclass "example-nfs" created
+```
+
+アノテーション `volume.beta.kubernetes.io/storage-class` を使用して PersistentVolumeClaim を作成します。 "example-nfs"
+
+```
+$ kubectl create -f deploy/kubernetes/claim.yaml
+persistentvolumeclaim "nfs" created
+```
+
+PersistentVolumeはPersistentVolumeClaim用にプロビジョニングされています。
+これで、要求はいくつかのポッドとバッキングNFSストレージによって読み書きされることになります。
+
+```
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS      CLAIM         REASON    AGE
+pvc-dce84888-7a9d-11e6-b1ee-5254001e0c1b   1Mi        RWX           Delete          Bound       default/nfs             23s
+```
+
+`PersistentVolumeClaim` を削除すると、プロビジョニングは `PersistentVolume` とそのデータを削除します。
+
+プロビジョニングの配備を削除すると、そのプロビジョニング担当者がいなくなるまで、未解決の `PersistentVolume` は使用できなくなります。
 
 ## Running
 
-Kubernetesクラスタにnfs-provisionerをデプロイするには、[デプロイ](https://github.com/kubernetes-incubator/external-storage/blob/master/nfs/docs/deployment.md)を参照してください。
+Kubernetesクラスタにnfs-provisionerをデプロイするには、[デプロイ](0100deployment.md)を参照してください。
 
-一度配備されたnfs-provisionerを使うには、[使い方](https://github.com/kubernetes-incubator/external-storage/blob/master/nfs/docs/usage.md)を見てください。
+一度配備されたnfs-provisionerを使うには、[使い方](0200usage.md)を見てください。
 
 
 ## Changelog(変更履歴)
