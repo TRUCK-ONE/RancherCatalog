@@ -36,9 +36,9 @@ $ helm install stable/nfs-server-provisioner
 | `image.tag`                    | The image tag to pull from                                                                                      | `v1.0.8`                                                 |
 | `image.pullPolicy`             | Image pull policy                                                                                               | `IfNotPresent`                                           |
 | `service.type`                 | service type                                                                                                    | `ClusterIP`                                              |
-| `service.nfsPort`              | TCP port on which the nfs-server-provisioner NFS service is exposed                                                    | `2049`                                                   |
-| `service.mountdPort`           | TCP port on which the nfs-server-provisioner mountd service is exposed                                                 | `20048`                                                  |
-| `service.rpcbindPort`          | TCP port on which the nfs-server-provisioner RPC service is exposed                                                    | `51413`                                                  |
+| `service.nfsPort`              | nfs-server-provisioner NFS サービスが公開されているTCPポート                                                  | `2049`                                                   |
+| `service.mountdPort`           | nfs-server-provisioner mountd サービスが公開されているTCPポート                                                 | `20048`                                                  |
+| `service.rpcbindPort`          | nfs-server-provisioner RPC サービスが公開されているTCPポート                                                    | `51413`                                                  |
 | `service.nfsNodePort`          | if `service.type` is `NodePort` and this is non-empty, sets the nfs-server-provisioner node port of the NFS service    | `nil`                                                    |
 | `service.mountdNodePort`       | if `service.type` is `NodePort` and this is non-empty, sets the nfs-server-provisioner node port of the mountd service | `nil`                                                    |
 | `service.rpcbindNodePort`      | if `service.type` is `NodePort` and this is non-empty, sets the nfs-server-provisioner node port of the RPC service    | `nil`                                                    |
