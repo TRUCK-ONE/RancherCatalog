@@ -95,6 +95,9 @@ spec:
           {{- if .Values.persistence.subPath }}
           subPath: {{ .Values.persistence.subPath }}
           {{- end }}
+          {{- if .Values.mycnf.generallog.enable }}
+          subPath: {{ .Values.mycnf.generallog.path }}
+          {{- end }}
         {{- if .Values.configurationFiles }}
         - name: configurations
           mountPath: /etc/mysql/conf.d
@@ -103,8 +106,13 @@ spec:
       {{- if .Values.configurationFiles }}
       - name: configurations
         configMap:
-          name: {{ template "mysql.fullname" . }}
+          name: {{ template "mysql.fullname" . }}-configuration
       {{- end }}
+      {{- if .Values.initializationFiles }} 
+      - name: migrations 
+        configMap: 
+          name: {{ template "mysql.fullname" . }}-initialization 
+      {{- end }} 
       - name: data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:

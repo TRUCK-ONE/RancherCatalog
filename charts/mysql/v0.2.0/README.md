@@ -1,8 +1,9 @@
 # MySQL
 
-## [更新履歴](History.md)
+## [更新履歴](history.md)
 
-- ver0.1.0
+- ver0.1.0  
+  MySQL を 5.0系 から 8.0系に  
 - ver0.2.0
 
 ## 前提条件
@@ -24,7 +25,7 @@ Make sure to replace [YOUR_RELEASE_NAME]:
 
 ## Configuration
 
-次の表に、MySQLチャートの設定可能なパラメータとそのデフォルト値を示します。  
+次の表に、MySQL Chart の設定可能なパラメータとそのデフォルト値を示します。  
 
 | Parameter                            | 説明                                      | 既定値                                                     |
 | ------------------------------------ | ----------------------------------------- | ---------------------------------------------------- |
@@ -114,14 +115,17 @@ initializationFiles:
 
 ## SSL
 
-This chart supports configuring MySQL to use [encrypted connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) with TLS/SSL certificates provided by the user. This is accomplished by storing the required Certificate Authority file, the server public key certificate, and the server private key as a Kubernetes secret. The SSL options for this chart support the following use cases:
+chart は、ユーザーが提供したTLS / SSL証明書で[暗号化された接続](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html)を使用するようにMySQLを設定することをサポートしています。
+認証局(CA)ファイル、サーバー公開鍵証明書(PKI)、およびサーバー秘密鍵 を Kubernetes secret として格納することによって実現されます。
+chart のSSLオプションは、以下のユースケースをサポートしています。
 
-* Manage certificate secrets with helm
-* Manage certificate secrets outside of helm
+* Helm を使って証明書の秘密を管理する
+* Helm の外で証明書の秘密を管理する
 
-## Manage certificate secrets with helm
+## Helm を使って証明書の秘密を管理する
 
-Include your certificate data in the `ssl.certificates` section. For example:
+あなたの証明書データを `ssl.certificates`セクションに含めてください。
+例えば:
 
 ```
 ssl:
@@ -143,24 +147,24 @@ ssl:
       -----END RSA PRIVATE KEY-----
 ```
 
-> **Note**: Make sure your certificate data has the correct formatting in the values file.
+> **注意:** 証明書データの値の形式が正しいことを確認してください。
 
-## Manage certificate secrets outside of helm
+## Helm の外で証明書の秘密を管理する
 
-1. Ensure the certificate secret exist before installation of this chart.
-2. Set the name of the certificate secret in `ssl.secret`.
-3. Make sure there are no entries underneath `ssl.certificates`.
+1. chart をインストールする前に、証明書が存在することを確認してください。
+2. 証明書の名前を `ssl.secret`に設定します。
+3. `ssl.certificates`の下にエントリがないことを確認してください。
 
-To manually create the certificate secret from local files you can execute:
+ローカルファイルから証明書を手動で作成するには、次のコマンドを実行します。:
 ```
 kubectl create secret generic mysql-ssl-certs \
   --from-file=ca.pem=./ssl/certificate-authority.pem \
   --from-file=server-cert.pem=./ssl/server-public-key.pem \
   --from-file=server-key.pem=./ssl/server-private-key.pem
 ```
-> **Note**: `ca.pem`, `server-cert.pem`, and `server-key.pem` **must** be used as the key names in this generic secret.
+> **注意:** この一般的には、ca.pem、server-cert.pem、および server-key.pemをファイル名として使用する必要があります。
 
-If you are using a certificate your configurationFiles must include the three ssl lines under [mysqld]
+証明書を使用している場合、configurationFiles には [mysqld] の下に3行のssl行を含める必要があります。
 
 ```
 [mysqld]
