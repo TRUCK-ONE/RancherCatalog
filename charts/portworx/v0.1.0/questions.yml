@@ -1,0 +1,173 @@
+categories:
+- storage
+namespace: kube-system
+labels:
+  io.rancher.certified: Arrangement
+questions:
+
+################################### KVDB options ################################
+- variable: internalKVDB
+  description: "internal kvdbを実行したい場合に選択してください。内部kvdbはベータ版です。KOPSを使って実行しているときは、内部kvdbを有効にしないでください。上記のkvdbエンドポイントは無視されます。"
+  type: boolean
+  label: Enable Internal KVDB store
+  default: false
+  group: "Key value store parameters (Required)"
+- variable: kvdb
+  description: "etcdクラスターやconsulクラスターなどのキーバリューストアを指します。複数のエンドポイントにはセミコロンを使用してください。（例：etcd:http://etcd-1.com.net:2379; etcd:http://etcd-2.com.net:2379; etcd:http://etcd-3.com.net:2379 ）"
+  type: string
+  label: "Endpoint address"
+  required: true
+  show_if: "internalKVDB=false"
+  group: "Key value store parameters (Required)"
+- variable: etcd.ca
+  description: "ETCD認証用のCAファイルの名前。例：etcd-ca.crt https://docs.portworx.com/scheduler/kubernetes/etcd-certs-using-secrets.html に従って、etcd証明書用のKubernetesシークレットを作成します。"
+  type: string
+  label: "ETCD CA file"
+  group: "Key value store security Parameters"
+  show_if: "internalKVDB=false"
+- variable: etcd.cert
+  description: "ETCD認証用の証明書の名前 例：etcd.crt"
+  type: string
+  label: "ETCD cert file"
+  group: "Key value store security Parameters"
+  show_if: "internalKVDB=false"
+- variable: etcd.key
+  description: "ETCD認証用の証明書キーの名前例：etcd.key"
+  type: string
+  label: "ETCD cert key file"
+  group: "Key value store security Parameters"
+  show_if: "internalKVDB=false"
+- variable: etcd.credentials
+  description: "ETCD認証用のユーザー名とパスワード。形式はuser：passwordです。証明書を使用している場合は不要です。"
+  type: string
+  label: "ETCD credentials"
+  group: "Key value store security Parameters"
+  show_if: "internalKVDB=false"
+- variable: consul.acl
+  description: "Consul認証に使用されるACLトークン値 （例：398073a8-5091-4d9c-871a-bbbeb030d1f6）。コンソールにのみ必要です。"
+  type: string
+  group: "Key value store security Parameters"
+  label: Consul ACL Token
+  show_if: "internalKVDB=false"
+
+
+################################### Storage options ################################
+- variable: drives
+  description: "これは';'ドライブの分離リスト。例えば、'/dev/sda;/dev/sdb;/dev/sdc'です。空のままにすると、Portworxは利用可能なドライブを使用しようとします。"
+  label: "Drives"
+  type: string
+  group: "Storage Parameters"
+- variable: usefileSystemDrive
+  default: false
+  label: "Use drives with a filesystem."
+  description: "ファイルシステムでドライブを使用するようにPXに指示します。"
+  type: boolean
+  group: "Storage Parameters"
+- variable: usedrivesAndPartitions
+  default: false
+  description: "マウント解除されたドライブとパーティションを使用するようにPXに指示します。"
+  type: boolean
+  label: "Use unmounted drives and partitions"
+  group: "Storage Parameters"
+- variable: journalDevice
+  description: "これにより、PXは独自のジャーナルパーティションを最適なドライブに作成して、PXメタデータの書き込みを吸収することができます。ジャーナルの書き込みは頻繁に同期されるので小さく、したがって別のジャーナルパーティションを使用するとパフォーマンスが向上します。Portworxに独自のジャーナルパーティションを作成させたい場合は、値'auto'を使用してください。"
+  type: string
+  label: "Journal Device"
+  group: "Storage Parameters"
+
+
+################################### Network options ################################
+- variable: dataInterface
+  description: "データネットワークインターフェイスを指定します。インスタンスに標準外のネットワークインタフェースがある場合に便利です。（例：eth1）デフォルトでは、Portworxは最初のルーティング可能なインターフェースを選択します。"
+  type: string
+  label: "Data Network Interface"
+  group: "Network Parameters"
+- variable: managementInterface
+  description: "管理ネットワークインターフェイスを指定します。 インスタンスに標準外のネットワークインタフェースがある場合に便利です。 （例：eth1） デフォルトでは、Portworxは最初のルーティング可能なインターフェースを選択します。"
+  type: string
+  label: "Management Network Interface"
+  group: "Network Parameters"
+
+################################### Platform options ################################
+- variable: pksInstall
+  default: false
+  label: "Installing on Pivotal Container Service (PKS)"
+  description: "Pivotal Containerサービスにインストールする場合に選択します。"
+  type: boolean
+  group: "Platform Parameters"
+- variable: AKSorEKSInstall
+  default: false
+  label: "Installing on AKS or EKS"
+  description: "Amazon Elastic Container Service for Kubernetes（EKS）またはAzure Kubernetes Service（AKS）のどちらにインストールするかを選択します。"
+  type: boolean
+  group: "Platform Parameters"
+- variable: isTargetOSCoreOS
+  default: false
+  label: "Installing on CoreOS"
+  description: "CoreOSにインストールする場合に選択します。"
+  type: boolean
+  group: "Platform Parameters"
+
+################################### Registry settings options ################################
+- variable: registrySecret
+  description: "コンテナレジストリでの認証に使用されるカスタムKubernetesシークレットを指定します。キューブシステムのネームスペースで定義する必要があります。（例：regcred）"
+  type: string
+  label: "Registry Kubernetes Secret"
+  group: "Container Registry Parameters"
+- variable: customRegistryURL
+  description: "Dockerイメージをダウンロードするためにindex.docker.ioの代わりに使用されるカスタムコンテナレジストリサーバー（リポジトリを含む）を指定します。（例：dockerhub.acme.net:5443またはmyregistry.com/myrepository/）"
+  label: "Custom Registry URL"
+  type: string
+  group: "Container Registry Parameters"
+
+
+
+################################## Optional features ############################
+- variable: csi
+  description: "CSI（Container Storage Interface）を有効にするかどうかを選択します。 CSIはまだアルファです。"
+  type: boolean
+  label: "Enable CSI"
+  default: false
+  required: false
+  group: "Advanced parameters"
+- variable: stork
+  default: true
+  label: "Install Stork"
+  description: "Kubernetes用のStorage Orchestration Runtime（STORK）は、ハイパーコンバージェンス、スナップショット、およびストレージ対応スケジューリング（推奨）を提供するスケジューラプラグインです。"
+  type: boolean
+  group: "Advanced parameters"
+- variable: storkVersion
+  default: "1.2.0"
+  label: "Stork version"
+  description: "使用する Stork のバージョン"
+  type: string
+  group: "Advanced parameters"
+- variable: lighthouse
+  default: false
+  label: "Lighthouse"
+  description: "Portworx Lighthouse GUIをインストールするかどうかを選択してください。"
+  type: boolean
+  group: "Advanced parameters"
+- variable: lighthouseVersion
+  default: "1.4.0"
+  description: "使用するLighthouse GUIのバージョン"
+  type: string
+  label: "Lighthouse version"
+  group: "Advanced parameters"
+- variable: envVars
+  label: "Environment variables"
+  description: "portworxにエクスポートされる環境変数のセミコロン区切りリスト。（例：API_SERVER=http://lighthouse-new.portworx.com;MYENV1=val1;MYENV2=val2）"
+  type: string
+  group: "Advanced parameters"
+- variable: imageVersion
+  default: "1.5.1"
+  description: "デプロイ中に使用されるPortworxイメージのバージョン"
+  type: string
+  label: Portworx version to be deployed.
+  group: "Advanced parameters"
+- variable: clusterName
+  description: "Portworxクラスタの名前"
+  type: string
+  label: Portworx cluster name
+  default: mycluster
+  group: "Advanced parameters"

@@ -1,0 +1,29 @@
+name: portworx
+
+version: 0.1.0
+
+appVersion: 1.0.0
+
+description: Kubernetes に Portworx をインストールするための Helm chart
+
+keywords:
+  - Storage
+  - ICP
+  - persistent disk
+  - pvc
+  - cloud native storage
+  - persistent storage
+  - portworx
+  - amd64
+home: https://portworx.com/
+
+maintainers:
+  - name: Shige Harada
+    email: s-harada@truck-one.co.jp
+
+sources:
+  - https://github.com/portworx/helm
+
+icon: https://raw.githubusercontent.com/portworx/helm/master/doc/media/k8s-porx.png
+
+engine: gotpl

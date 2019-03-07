@@ -1,0 +1,13 @@
+あなたのリリースの名前は {{ .Release.Name | quote }}
+
+Portworx Podは、クラスタ内の各ノードで実行されているはずです。
+
+PortworxはKubernetesノードに接続されているディスクの統合プールを作成します。 これ以上の操作は不要で、アプリケーションデータの要件の一部としてPortworx Volumeを使用する準備が整いました。
+
+Portworxの使い方の詳細については、次のドキュメントページを参照してください。
+
+- For dynamically provisioning volumes: https://docs.portworx.com/scheduler/kubernetes/dynamic-provisioning.html
+- For preprovisioned volumes: https://docs.portworx.com/scheduler/kubernetes/preprovisioned-volumes.html
+- To use Stork (Storage Orchestration Runtime for Kubernetes) for hyperconvergence and snapshots: https://docs.portworx.com/scheduler/kubernetes/stork.html
+- For stateful application solutions using Portworx: https://docs.portworx.com/scheduler/kubernetes/k8s-px-app-samples.html
+- For interactive tutorials on using Portworx on Kubernetes: https://docs.portworx.com/scheduler/kubernetes/px-k8s-interactive.html
