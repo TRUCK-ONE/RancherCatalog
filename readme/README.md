@@ -2,14 +2,14 @@
 
 ## [Rancher](rancher/rancher.md)
 
-## [Helm Chart](helmchart/helmchart.md)
+## [Helm Chart](catalog/making/helmchart/helmchart.md)
 
 ## Kubernetes
-* [Configure a Pod to Use a ConfigMap](configmap/configmap.md)
+- [Configure a Pod to Use a ConfigMap](catalog/making/configmap/configmap.md)
 
-## [YAML](yaml/yaml.md)
+## [YAML](catalog/making/yaml/yaml.md)
 
-## [Package template](package/package.md)
+## [Package template](catalog/making/package/package.md)
 
 ---
 ## 用語集
