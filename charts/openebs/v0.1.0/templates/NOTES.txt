@@ -1,0 +1,28 @@
+OpenEBSがインストールされました。
+次のコマンドを実行してステータスを確認してください。
+$ kubectl get pods -n {{ .Release.Namespace }}
+
+OpenEBSボリュームを動的に作成するには、新しいStorageClassを作成するか、
+または OpenEBSが提供するデフォルトのストレージクラスの1つを使用してください。
+
+インストールされている OpenEBS StorageClassesのリストを見るには、 `kubectl get sc`を使います。
+サンプル `openebs-jiva-default` StorageClassを使ったPVCの仕様は以下の通りです。"
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: demo-vol-claim
+spec:
+  storageClassName: openebs-jiva-default
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5G
+---
+
+詳細については、 http://docs.openebs.io/ をご覧ください。
+
+OpenEBSは、アプリケーションとの接続にiSCSIを使用します。
+OpenEBSボリュームとノードにiSCSIイニシエータがインストールされているはずです。
