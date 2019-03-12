@@ -22,7 +22,7 @@ StorageClassオブジェクトは、GCEやAWSなどのツリー内のプロビ�
 nfs-provisionerインスタンスの状態とデータを保存するボリュームを選択し、そのボリュームを `deploy/kubernetes/deployment.yaml` の `/export` にマウントします。
 hostPathボリュームである必要はありません。
 PVCになります。
-ボリュームにはサポートされているファイルシステムが必要です。
+ボリュームにはサポートされている[ファイルシステム](another/fsalsupport.md)が必要です。
 Linux上のローカルファイルシステムはサポートされていますが、NFSはサポートされていません。
 
 ```
@@ -102,6 +102,30 @@ Kubernetesクラスタにnfs-provisionerをデプロイするには、[デプロ
 
 ここで外部ストレージで行われたリリースには対応するgitタグがありません（外部ストレージのgitタグはライブラリのバージョン管理のために予約されています）ので、リリースを追跡するためにこのREADME、changelog、またはQuayを確認してください。
 
----
+## Writing your own
 
-以下略
+独自のツリー外動的プロビジョニングプログラムを作成する方法の例については、ここをクリックしてください。
+
+## Roadmap
+
+これはまだアルファ版/試験版であり、ツリー外動的プロビジョニングプログラムの提案を反映するように変更されます。
+
+## Community, discussion, contribution, and support
+
+コミュニティページでKubernetesコミュニティに参加する方法を学んでください。
+
+このプロジェクトのメンテナに連絡することができます。
+
+- Slack: #sig-storage
+
+## Kubernetes Incubator
+
+このプロジェクトのメンテナに連絡することができます。
+
+- Sponsor: Clayton (@smarterclayton)
+- Champion: Brad (@childsb)
+- SIG: sig-storage
+
+## Code of conduct
+
+Kubernetesコミュニティへの参加は、Kubernetes行動規範によって管理されています。

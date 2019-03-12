@@ -47,12 +47,7 @@ Helm チャート から Rancher 2.0 カタログに追加される項目
 
 Ranchar の カタログを作成するに参考となるアイテム
 
-- [YAML](readme/yaml/yaml.md)
-- [Helm Charts](readme/helmchart/helmchart.md)
-- [Rancher](readme/rancher/menu.md)
-- [Package template](readme/package/package.md)
-- [configmap](readme/configmap/configmap.md)
-- [longhorn](readme/longhorn/longhorn.md)
+- [目次](readme/readme.md)
 
 ---
 # 外部参考URL

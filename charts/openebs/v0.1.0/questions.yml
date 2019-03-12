@@ -183,7 +183,7 @@ questions:
     label: OpenEBS API Server Internal Port
 - variable: policies.monitoring.enabled
   default: true
-  description: "Enable prometheus monitoring"
+  description: "prometheus monitoring を有効にするか？"
   type: boolean
   label: Enable Prometheus Monitoring
   group: "Monitoring Settings"
