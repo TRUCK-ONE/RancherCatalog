@@ -1,0 +1,5 @@
+# Overview of RKE(RKEの概要)
+
+Rancher Kubernetes Engine（RKE）は、ベアメタルサーバーおよび仮想化サーバーへのインストールをサポートする軽量のKubernetesインストーラーです。
+RKEはKubernetesコミュニティの一般的な問題、インストールの複雑さを解決します。
+RKEを使用すると、実行しているオペレーティングシステムやプラットフォームに関係なく、Kubernetesのインストールが簡単になります。

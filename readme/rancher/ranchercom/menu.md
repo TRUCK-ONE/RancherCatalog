@@ -24,11 +24,11 @@
 > ### [Single Node Install](0300installation/0400singlenodeinstall.md)
 >> #### [HTTP Proxy Configuration](0300installation/0410HTTPproxyconfiguration.md)
 >> #### [Single Node Install with External Load Balancer](0300installation/0420installwithloadbalancer.md)
-> ### High Availability (HA) Install
->> #### 1. Create Nodes and Load Balancer
->>> ##### NGINX 
+> ### [High Availability (HA) Install](0300installation/0500highavailabilityinstall.md)
+>> #### [1. Create Nodes and Load Balancer](0300installation/0510createnodesandloadbalancer.md)
+>>> ##### [NGINX](0300installation/0511NGINX.md)
 >>> ##### Amazon NLB
->> #### 2. Install Kubernetes with RKE
+>> #### [2. Install Kubernetes with RKE](0300installation/0520installKuberneteswithRKE.md)
 >>> ##### Troubleshooting
 >> #### 3. Initialize Helm (Install Tiller)
 >>> ##### Troubleshooting
