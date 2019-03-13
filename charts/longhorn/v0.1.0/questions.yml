@@ -1,0 +1,65 @@
+categories:
+- storage
+labels:
+  io.rancher.certified: Arrangement
+namespace: longhorn-system
+questions:
+- variable: driver
+  default: csi
+  description: "CSIまたはFlexVolumeドライバをデプロイします。 CSIは最新ですが、MountPropagationが必要です。これはKubernetes v1.10以降でデフォルトで有効になっている機能です。"
+  type: enum
+  options:
+  - csi
+  - flexvolume
+  label: Longhorn Kubernetes Driver
+  group: "Longhorn Settings"
+  show_subquestion_if: flexvolume
+  subquestions:
+  - variable: persistence.flexvolumePath
+    default: ""
+    description: "自動検出するには空白のままにします。 RKEの場合、 `/var/lib/kubelet/volumeplugins` を使用してください。 GKEの場合は、代わりに `/home/kubernetes/flexvolume/`を使用してください。 ユーザはホスト上で `ps aux | grep kubelet`を実行して--volume-plugin-dirパラメータをチェックすることで正しいディレクトリを見つけることができます。 何もなければ、デフォルトの `/usr/libexec/kubernetes/kubelet-plugins/volume/exec/` が使われます。"
+    type: string
+    label: Longhorn Flexvolume Path
+- variable: persistence.defaultClass
+  default: "true"
+  description: "デフォルトのStorageClassとして設定"
+  group: "Longhorn Settings"
+  type: boolean
+  required: true
+  label: Default Storage Class
+- variable: ingress.enabled
+  default: "false"
+  description: "レイヤ7ロードバランサを使用したアプリの公開 - 入力"
+  type: boolean
+  group: "Services and Load Balancing"
+  label: Expose app using Layer 7 Load Balancer
+  show_subquestion_if: true
+  subquestions:
+  - variable: ingress.host
+    default: "xip.io"
+    description: "レイヤ7ロードバランサのホスト名"
+    type: hostname
+    required: true
+    label: Layer 7 Load Balancer Hostname
+- variable: service.ui.type
+  default: "Rancher-Proxy"
+  description: "Longhorn UIサービスタイプを定義する"
+  type: enum
+  options:
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+    - "Rancher-Proxy"
+  label: Longhorn UI Service
+  show_if: "ingress.enabled=false"
+  group: "Services and Load Balancing"
+  show_subquestion_if: "NodePort"
+  subquestions:
+  - variable: service.ui.nodePort
+    default: ""
+    description: "NodePort port number(to set explicitly, choose port between 30000-32767)"
+    type: int
+    min: 30000
+    max: 32767
+    show_if: "service.ui.type=NodePort||service.ui.type=LoadBalancer"
+    label: UI Service NodePort number

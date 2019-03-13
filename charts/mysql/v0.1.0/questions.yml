@@ -1,6 +1,8 @@
 categories:
 - Database
 - MySQL
+labels:
+  io.rancher.certified: Arrangement
 questions:
 - variable: defaultImage
   default: "true"

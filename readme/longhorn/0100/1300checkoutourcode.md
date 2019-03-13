@@ -1,0 +1,13 @@
+# Check out our code
+
+プロジェクトのコードと設計についてもっと知りたい場合は、[[source code and docs](https://github.com/rancher/longhorn)]を調べてください。
+問題を[[GitHub](https://github.com/rancher/longhorn)]に報告するか、Longhorn [[forum](https://forums.rancher.com/c/longhorn)]にアクセスしてください。
+[[次回のオンラインミートアップでは、Rancher LabsのチーフアーキテクトであるDarren Shepherdと、Longhornについて詳細に説明し、ライブデモを行います。
+あなたがLonghornプロジェクトについてもっと学ぶことに興味があるならば]] [[ここ](https://info.rancher.com/april-2017-project-longhorn)]に登録することをお勧めします。
+ShengはRancher Labsの共同創設者兼CEOです。
+Rancherを始める前は、Cloud.comの買収後、Citrix SystemsのCloud PlatformsグループのCTOを務め、そこで共同創設者兼CEOを務めました。
+Shengは革新的な技術を構築するための15年以上の経験を持っています。
+2005年にCitrixに買収されたTerosの共同創設者であり、SEVEN Networksの大規模なエンジニアリングチームとOpenwave Systemsのリーダーでした。
+Shengは、Sun MicrosystemsでJavaソフトウェアのスタッフエンジニアとしてのキャリアをスタートさせ、そこでJava Native Interface（JNI）を設計し、Java 2プラットフォーム用のJava Virtual Machine（JVM）開発を主導しました。
+Sheng は学士号を取得しています中国科学技術大学および博士課程で博士号を取得しました。エール大学より。
+

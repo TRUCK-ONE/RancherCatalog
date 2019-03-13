@@ -1,0 +1,2 @@
+1. これらのコマンドを実行してアプリケーションのURLを取得します。
+   kubectl get po -n $release_namespace

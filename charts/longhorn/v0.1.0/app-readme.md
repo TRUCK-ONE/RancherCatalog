@@ -1,0 +1,7 @@
+# Longhorn
+
+Longhornは、Kubernetes向けの軽量で信頼性が高く使いやすい分散ブロックストレージシステムです。 いったんデプロイされると、ユーザーはLonghornによって提供された永続的なボリュームを利用することができます。
+
+Longhornは、各ボリュームに専用のストレージコントローラを作成し、複数のノードに格納されている複数のレプリカにまたがってそのボリュームを同期的に複製します。 ストレージコントローラとレプリカ自体は、Kubernetesを使って編成されています。 Longhornはスナップショット、バックアップをサポートしています。また、スナップショットとバックアップを定期的にスケジュールすることもできます。
+
+[Chart Documentation](https://github.com/rancher/longhorn/blob/master/docs/chart.md)
