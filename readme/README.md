@@ -5,8 +5,7 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 以下　途中＆整理中
 
 
-## [Rancher](rancher/rancher.md)
-
+## [Rancher](rancher/rancher/rancher.md)
 
 ---
 
@@ -21,7 +20,6 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 
 ---
 ## 用語集
-
 
 - [YAML](readme/yaml/yaml.md)
 - [Helm Charts](readme/helmchart/helmchart.md)
