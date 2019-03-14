@@ -7,6 +7,8 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 
 ## [Rancher](rancher/rancher/rancher.md)
 
+## [RKE](rancher/RKE/menu.md)
+
 ---
 
 ## [Helm Chart](catalog/making/helmchart/helmchart.md)
@@ -21,9 +23,6 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 ---
 ## 用語集
 
-- [YAML](readme/yaml/yaml.md)
-- [Helm Charts](readme/helmchart/helmchart.md)
-- [Rancher](readme/rancher/menu.md)
-- [Package template](readme/package/package.md)
 - [configmap](readme/configmap/configmap.md)
 - [longhorn](readme/longhorn/longhorn.md)
+

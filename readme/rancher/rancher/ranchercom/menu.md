@@ -87,3 +87,7 @@
 > ### Secrets
 > ### Registries
 > ### Nodes
+
+## [Catalogs and Charts](0900catalogsandcharts/0100catalogsandcharts.md)
+> ### [Custom Catalogs and Charts](0900catalogsandcharts/0200customcatalogscharts.md)
+
