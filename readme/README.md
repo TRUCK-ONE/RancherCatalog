@@ -7,7 +7,7 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 
 ## [Rancher](rancher/rancher/rancher.md)
 
-## [RKE](rancher/RKE/menu.md)
+## [RKE](rancher/rke/menu.md)
 
 ---
 
@@ -23,6 +23,8 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 ---
 ## 用語集
 
-- [configmap](readme/configmap/configmap.md)
-- [longhorn](readme/longhorn/longhorn.md)
+- [configmap](readme/making/configmap/configmap.md)
+- [longhorn](readme/catalog/longhorn/longhorn.md)
+- [nfs-server](readme/catalog/nfs-server/githubcom/readme.md)
+- [openebs](readme/catalog/openebs/githubcom/readme.md)
 
