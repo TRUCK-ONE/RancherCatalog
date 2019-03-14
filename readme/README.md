@@ -23,8 +23,15 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 ---
 ## 用語集
 
-- [configmap](readme/making/configmap/configmap.md)
-- [longhorn](readme/catalog/longhorn/longhorn.md)
-- [nfs-server](readme/catalog/nfs-server/githubcom/readme.md)
-- [openebs](readme/catalog/openebs/githubcom/readme.md)
+- [configmap](catalog/making/configmap/configmap.md)
+
+--- 
+## Charts
+
+- [longhorn](catalog/catalog/charts/longhorn/longhorn.md)
+- [nfs-server](catalog/catalog/charts/nfs-server/githubcom/readme.md)
+
+## 退避 Charts
+
+- [openebs](catalog/catalog/evacuation/openebs/githubcom/readme.md)
 
