@@ -62,32 +62,91 @@
 > ### Port Requirements 
 ---
 ## Upgrades and Rollbacks
-
+---
 ## Backups and Disaster Recovery
-
+---
 ## Administration
-
+---
 ## Provisioning Kubernetes Clusters
-
 ---
 ## [Kubernetes in Rancher](0800kubernetesrancher/0100kubernetesrancher.md)
-> ### Horizontal Pod Autoscaler
-> ### Using kubectl to Access a Cluster
-> ### Kubeconfig Files
-> ### Editing Clusters
-> ### Projects and Namespaces
+> ### [Horizontal Pod Autoscaler](0800kubernetesrancher/0200horizontalpodautoscaler.md)
+> ### [Using kubectl to Access a Cluster](0800kubernetesrancher/0300usingkubectlcluster.md)
+> ### [Kubeconfig Files](0800kubernetesrancher/0400kubeconfigfiles.md)
+> ### [Editing Clusters](0800kubernetesrancher/0500editingclusters.md)
+> ### [Projects and Namespaces](0800kubernetesrancher/0600projectsnamespaces.md)
+>> #### [Editing Projects](0800kubernetesrancher/0610editingprojects.md)
+>> #### [Adding Users to Projects](0800kubernetesrancher/0620addingusersprojects.md)
+>> #### Resource Quotas
 > ### Workloads
 > ### [Load Balancing and Ingresses](0800kubernetesrancher/0800loadbalancingingresses.md)
 >> #### [Load Balancers](0800kubernetesrancher/0801loadbalancers.md)
 >> #### [Ingress](0800kubernetesrancher/0802ingress.md)
 > ### [Service Discovery](0800kubernetesrancher/0900servicediscovery.md)
-> ### Volumes and Storage
+> ### [Volumes and Storage](0800kubernetesrancher/1000volumesstorage.md)
+>> #### Persistent Volume Claims
+>> #### Provisioning Storage Examples
+>>> ##### NFS Storage
+>>> ##### vSphere Storage 
 > ### SSL Certificates
 > ### ConfigMaps
 > ### Secrets
 > ### Registries
 > ### Nodes
-
+---
 ## [Catalogs and Charts](0900catalogsandcharts/0100catalogsandcharts.md)
 > ### [Custom Catalogs and Charts](0900catalogsandcharts/0200customcatalogscharts.md)
-
+---
+## Rancher Tools
+> ### Pipelines
+>> #### Pipelines Quick Start Guide
+>> #### Pipeline Terminology
+>> #### Configuring Pipelines
+>> #### Pipeline Variable Reference
+>> #### v2.0.x Pipeline Documentation
+> ### Alerts and Notifiers
+> ### Logging
+>> #### Elasticsearch
+>> #### Splunk
+>> #### Kafka
+>> #### Syslog
+---
+## Rancher CLI
+---
+## User Settings
+> ### API Keys
+> ### Managing Node Templates
+> ### User Preferences
+---
+## API
+---
+## Rancher Security
+---
+## FAQ
+> ### Installing and Configuring kubectl
+> ### Networking
+>> #### CNI Providers
+> ### Technical
+> ### Security
+> ### Telemetry
+---
+## Troubleshooting
+> ### Kubernetes components
+> ### Kubernetes resources
+> ### Networking
+> ### DNS
+> ### Rancher HA
+> ### Imported clusters
+---
+## Contributing to Rancher
+---
+## Migrating from Rancher v1.6 to v2.x
+> ### Kubernetes Introduction
+> ### 1.Get Started
+> ### 2.Migrate Your Services
+>> #### Migration Tools CLI Reference
+> ### 3.Expose Your Services
+> ### 4.Configure Health Checks
+> ### 5.Schedule Your Services
+> ### 6.Service Discovery
+> ### 7.Load Balancing
