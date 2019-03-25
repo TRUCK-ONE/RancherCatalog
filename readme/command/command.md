@@ -1,3 +1,8 @@
-# Linux コマンド
+# コマンド一覧
 
-traceroute
+| Windows | Linux |
+| --- | --- |
+| cd | cd |
+| dir | ls |
+
+

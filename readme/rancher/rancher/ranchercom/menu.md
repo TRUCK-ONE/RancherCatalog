@@ -77,27 +77,31 @@
 > ### [Projects and Namespaces](0800kubernetesrancher/0600projectsnamespaces.md)
 >> #### [Editing Projects](0800kubernetesrancher/0610editingprojects.md)
 >> #### [Adding Users to Projects](0800kubernetesrancher/0620addingusersprojects.md)
->> #### Resource Quotas
-> ### Workloads
+>> #### [Resource Quotas](0800kubernetesrancher/0630resourcequotas.md)
+> ### [Workloads](0800kubernetesrancher/0700workloads.md)
+>> #### [Deploying Workloads](0800kubernetesrancher/0710deployingworkloads.md)
+>> #### [Rolling Back Workloads](0800kubernetesrancher/0720rollingbackworkloads.md)
+>> #### [Upgrading Workloads](0800kubernetesrancher/0730upgradingworkloads.md)
+>> #### [Adding a Sidecar](0800kubernetesrancher/0740addingsidecar.md)
 > ### [Load Balancing and Ingresses](0800kubernetesrancher/0800loadbalancingingresses.md)
 >> #### [Load Balancers](0800kubernetesrancher/0801loadbalancers.md)
 >> #### [Ingress](0800kubernetesrancher/0802ingress.md)
 > ### [Service Discovery](0800kubernetesrancher/0900servicediscovery.md)
 > ### [Volumes and Storage](0800kubernetesrancher/1000volumesstorage.md)
->> #### Persistent Volume Claims
->> #### Provisioning Storage Examples
->>> ##### NFS Storage
+>> #### [Persistent Volume Claims](0800kubernetesrancher/1010persistentvolumevlaims.md)
+>> #### [Provisioning Storage Examples](0800kubernetesrancher/1020provisioningstorageexampl.md)
+>>> ##### [NFS Storage](0800kubernetesrancher/1021NFSstorage.md)
 >>> ##### vSphere Storage 
-> ### SSL Certificates
-> ### ConfigMaps
-> ### Secrets
-> ### Registries
-> ### Nodes
+> ### [SSL Certificates](0800kubernetesrancher/1100SSLcertificates.md)
+> ### [ConfigMaps](0800kubernetesrancher/1200configmaps.md)
+> ### [Secrets](0800kubernetesrancher/1300secrets.md)
+> ### [Registries](0800kubernetesrancher/1400registries.md)
+> ### [Nodes](0800kubernetesrancher/1500nodes.md)
 ---
 ## [Catalogs and Charts](0900catalogsandcharts/0100catalogsandcharts.md)
 > ### [Custom Catalogs and Charts](0900catalogsandcharts/0200customcatalogscharts.md)
 ---
-## Rancher Tools
+## [Rancher Tools](1000ranchertools/0100ranchertools.md)
 > ### Pipelines
 >> #### Pipelines Quick Start Guide
 >> #### Pipeline Terminology
