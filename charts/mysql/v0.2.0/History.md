@@ -9,8 +9,8 @@
 ## ver0.1.0
 
 [Rancherカタログ](https://github.com/rancher/charts/blob/master/charts/mysql/v0.3.7/)の内容をアレンジ  
-- MySQL を 5.0系 から 8.0系に  
-- 注釈等の日本語化  
+- MySQL を 5.0系 から 8.0系に
+- 注釈等の日本語化
 - ログの取得はできないが、rancherにて起動可能
 - busybox を 1.25.0 から 1.30.0
 
