@@ -29,7 +29,7 @@ ssh_authorized_keys:
   - ssh-rsa AAA...
 ```
 
-この[記事](https://help.github.com/en/articles/connecting-to-github-with-ssh)に従って、`cloud-config.yml` ファイル用の新しいSSHキーを生成できます。
+この記事＜[オリジナル](https://help.github.com/en/articles/connecting-to-github-with-ssh)／[翻訳](../../../github/articles/GithubwithSSH/010000GitHubwithSSH.md)＞に従って、`cloud-config.yml` ファイル用の新しいSSHキーを生成できます。
 
 ディスクにインストールする前に、公開SSH鍵をRancherOSにコピーしてください。
 

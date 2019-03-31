@@ -11,12 +11,12 @@
 > ### [Running RancherOS](0300installation/020001runningRancherOS.md)
 >> #### [Cloud](0300installation/020100cloud.md)
 >>> ##### Amazon EC2
->>> ##### Google Compute Engine (GCE)
+>>> ##### Google Compute Engine(GCE)
 >>> ##### Digital Ocean
 >>> ##### VMware ESXi
 >>> ##### OpenStack
 >>> ##### Azure
->> #### [Server])(0300installation/020200server.md)
+>> #### [Server](0300installation/020200server.md)
 >>> ##### [Installing to Disk](0300installation/020201installingdisk.md)
 >>> ##### iPXE
 >>> ##### Raspberry Pi

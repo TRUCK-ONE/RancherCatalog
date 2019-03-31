@@ -9,6 +9,8 @@ ranchar の構築に際し、必要と思われる部分を日本語化した。
 
 ## [RKE](rancher/rke/menu.md)
 
+## [RancherOS](rancher/rancherOS/menu.md)
+
 ---
 
 ## [Helm Chart](catalog/making/helmchart/helmchart.md)
